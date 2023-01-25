@@ -1,0 +1,5 @@
+.rightBarContain{
+    flex: 3.5;
+    background-color: #fccc63;
+    height: calc(100vh - 50px);
+}
