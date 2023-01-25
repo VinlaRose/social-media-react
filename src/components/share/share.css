@@ -13,6 +13,14 @@
     display: flex;
 }
 
+.shareprofileImage{
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
 .writePost{
     border: none;
     background-color: whitesmoke;

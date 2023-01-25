@@ -7,7 +7,7 @@ export default function Share(){
     return(
         <div className="shareContainer">
             <div className="shareTopbar">
-                <img src="assets\Reji.jpg" alt="" className="profileImage" />
+                <img src="assets\Reji.jpg" alt="" className="shareprofileImage" />
                 <input placeholder="What's in your mind?" type="text" className="writePost"/>
 
             </div>
