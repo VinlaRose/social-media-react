@@ -10,8 +10,8 @@ export default function Topbar(){
           </div>
           <div className="topbarcentre">
             <div className="searchbar">
-              <Search/>
-              <input placeholder="Search for friends, posts etc" className="searchInput" />
+              <Search className="searchbaricon"/>
+              <input placeholder="Search for friends, posts, videos etc" className="searchInput" />
 
 
             </div>
@@ -20,24 +20,24 @@ export default function Topbar(){
           </div>
           <div className="topbarright">
             <div className="topbarlinks">
-              <span className="topbarlink">Home</span>
-              <span className="topbarlink">Timeline</span>
+              <span className="topbarlinks">Home</span>
+              <span className="topbarlinks">Timeline</span>
             </div>
             <div className="topbaricons">
-              <div className="topbariconitem">
+              <div className="topBarIconItem">
                 <Person/>
                 <span className="topbariconbadge">1</span>
               </div>
-              <div className="topbariconitem">
+              <div className="topBarIconItem">
                 <Chat/>
                 <span className="topbariconbadge">1</span>
               </div>
-              <div className="topbariconitem">
+              <div className="topBarIconItem">
                 <Notifications/>
                 <span className="topbariconbadge">1</span>
               </div>
             </div>
-            <img src="/assets/Reji.jpg" alt="vin" className="topbarImg" />
+            <img src="\assets\Reji.jpg" alt="" className="topbarImg" />
             
           </div>
         </div>
