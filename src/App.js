@@ -1,12 +1,9 @@
 import Home from "./pages/home/Home";
-import {Person} from "@mui/icons-material"
+import React from 'react';
+
 function App() {
-  return (
-    
-        <Person/>
-        
-     
-   
+  return(
+      <Home/>
   );
 }
 
