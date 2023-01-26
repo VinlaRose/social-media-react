@@ -1,5 +1,30 @@
-.rightBarContain{
+.rightBarContainer{
     flex: 3.5;
-    background-color: #fccc63;
+    
     height: calc(100vh - 50px);
+}
+
+.rightBarWrapper{
+    margin: 5px 10px 5px 5px;
+    
+    
+}
+
+.bdayMsg{
+    display: flex;
+    align-items: center;
+    
+}
+
+.bdayIcon{
+    height: 100px;
+    width: 100px;
+}
+
+.adBox{
+    margin-top: 5px;
+}
+.adImg{
+    width: 100%;
+    border-radius: 10px;
 }
