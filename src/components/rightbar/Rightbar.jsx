@@ -1,6 +1,7 @@
 import React from 'react';
 import "./rightbar.css";
 
+
 export default function Rightbar(){
     return(
         
@@ -14,17 +15,18 @@ export default function Rightbar(){
                         <img src="assets/add1.jpg" alt="" className="adImg" />
                     </div>
                     <h4 className='onlineFrndsHeading'>Online Friends</h4>
-                    <ul className="ListonlineFriends">
-                        <li className="onlineFriend">
-                            <div className="profileImageContainer">
-                                <img src="assets/alice.jpg" alt="" className="onlineFriendProfilepic"/>
-                                <span className="onlinebadge"></span>
-
-                            </div>
-                            
-                            <span className="onlineFriendName">Alice Dsouza</span>
-                        </li>
-                    </ul>
+                    <ul className="friendsList">
+                    <li className="friendsonline">
+                        <img src="./assets/alice.jpg" alt="" className="friendsImage" />
+                        <span className="onlinebadge"></span>
+                        <span className="friendsName">Sam Sarma</span>
+                    </li>
+                    <li className="friendsonline">
+                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
+                        <span className="friendsName">Sam Sarma</span>
+                    </li>
+                    
+                </ul>
                     
                 </div>
             </div>
