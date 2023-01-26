@@ -16,17 +16,62 @@ export default function Rightbar(){
                     </div>
                     <h4 className='onlineFrndsHeading'>Online Friends</h4>
                     <ul className="friendsList">
-                    <li className="friendsonline">
-                        <img src="./assets/alice.jpg" alt="" className="friendsImage" />
-                        <span className="onlinebadge"></span>
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
+                        <li className="friendsonline">
+                            <div className="imageContainerOnline">
+                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
+                                <span className="onlinebadge"></span>
+
+                            </div>
+                        
+                            <span className="friendsName">Alice D'souza</span>
+                        </li>
+                        <li className="friendsonline">
+                            <div className="imageContainerOnline">
+                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
+                                <span className="onlinebadge"></span>
+
+                            </div>
+                        
+                            <span className="friendsName">Alice D'souza</span>
+                        </li>
+                        <li className="friendsonline">
+                            <div className="imageContainerOnline">
+                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
+                                <span className="onlinebadge"></span>
+
+                            </div>
+                        
+                            <span className="friendsName">Alice D'souza</span>
+                        </li>
+                        <li className="friendsonline">
+                            <div className="imageContainerOnline">
+                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
+                                <span className="onlinebadge"></span>
+
+                            </div>
+                        
+                            <span className="friendsName">Alice D'souza</span>
+                        </li>
+                        <li className="friendsonline">
+                            <div className="imageContainerOnline">
+                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
+                                <span className="onlinebadge"></span>
+
+                            </div>
+                        
+                            <span className="friendsName">Alice D'souza</span>
+                        </li>
+                        <li className="friendsonline">
+                            <div className="imageContainerOnline">
+                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
+                                <span className="onlinebadge"></span>
+
+                            </div>
+                        
+                            <span className="friendsName">Alice D'souza</span>
+                        </li>
                     
-                </ul>
+                    </ul>
                     
                 </div>
             </div>
