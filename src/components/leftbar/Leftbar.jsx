@@ -2,8 +2,14 @@ import React from 'react';
 import "./leftbar.css";
 import { RssFeed, Chat, Groups, Work, QuestionMark, Event, MenuBook, Bookmark} from '@mui/icons-material';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
+import FriendsList from '../frndsList/frndsList';
+import {Users} from "../../dummyData"
+
+
+
 export default function Leftbar(){
     return(
+        
         <div className="leftBarContainer">
             <div className="leftbarwrapper">
                 <ul className="leftbaritemlist">
@@ -50,42 +56,10 @@ export default function Leftbar(){
                 <hr className='hrline'/>
 
                 <ul className="friendsList">
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
-                    <li className="friendsonline">
-                        <img src="./assets/Sam.jpg" alt="" className="friendsImage" />
-                        <span className="friendsName">Sam Sarma</span>
-                    </li>
+                {Users.map(u=>
+              <FriendsList key = {u.id} user = {u}/>  )}
+                    
+                    
                 </ul>
 
             </div>

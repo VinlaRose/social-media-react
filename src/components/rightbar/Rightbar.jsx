@@ -1,5 +1,7 @@
 import React from 'react';
 import "./rightbar.css";
+import OnlineFrnds from '../onlineFrnds/onlineFrnds';
+import { Users } from '../../dummyData';
 
 
 export default function Rightbar(){
@@ -15,63 +17,13 @@ export default function Rightbar(){
                         <img src="assets/add1.jpg" alt="" className="adImg" />
                     </div>
                     <h4 className='onlineFrndsHeading'>Online Friends</h4>
+
                     <ul className="friendsList">
-                        <li className="friendsonline">
-                            <div className="imageContainerOnline">
-                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
-                                <span className="onlinebadge"></span>
-
-                            </div>
-                        
-                            <span className="friendsName">Alice D'souza</span>
-                        </li>
-                        <li className="friendsonline">
-                            <div className="imageContainerOnline">
-                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
-                                <span className="onlinebadge"></span>
-
-                            </div>
-                        
-                            <span className="friendsName">Alice D'souza</span>
-                        </li>
-                        <li className="friendsonline">
-                            <div className="imageContainerOnline">
-                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
-                                <span className="onlinebadge"></span>
-
-                            </div>
-                        
-                            <span className="friendsName">Alice D'souza</span>
-                        </li>
-                        <li className="friendsonline">
-                            <div className="imageContainerOnline">
-                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
-                                <span className="onlinebadge"></span>
-
-                            </div>
-                        
-                            <span className="friendsName">Alice D'souza</span>
-                        </li>
-                        <li className="friendsonline">
-                            <div className="imageContainerOnline">
-                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
-                                <span className="onlinebadge"></span>
-
-                            </div>
-                        
-                            <span className="friendsName">Alice D'souza</span>
-                        </li>
-                        <li className="friendsonline">
-                            <div className="imageContainerOnline">
-                                <img src="./assets/alice.jpg" alt="" className="friendsImage" />
-                                <span className="onlinebadge"></span>
-
-                            </div>
-                        
-                            <span className="friendsName">Alice D'souza</span>
-                        </li>
-                    
+                    {Users.map(u=>
+              <OnlineFrnds key = {u.id} user = {u}/>  )}
                     </ul>
+                        
+                    
                     
                 </div>
             </div>

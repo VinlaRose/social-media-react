@@ -1,0 +1,17 @@
+.friendsonline{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.friendsImage{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.friendsName{
+    margin-left: 15px;
+}
