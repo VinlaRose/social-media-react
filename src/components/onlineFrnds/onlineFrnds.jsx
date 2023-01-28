@@ -1,6 +1,6 @@
 import React from 'react';
 import "./onlineFrnds.css";
-import { Users } from '../../dummyData';
+
 
 export default function OnlineFrnds({user}){
     return(
