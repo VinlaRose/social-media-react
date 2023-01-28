@@ -6,6 +6,7 @@
     top: 50px;
     
     
+    
 }
 
 .rightBarWrapper{
@@ -79,4 +80,38 @@
 
 .friendsName{
     margin-left: 15px;
+}
+.profileuserinfohead{
+    margin-bottom: 15px;
+}
+.profileuserinfo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+    
+    
+}
+
+.userInfoItem{
+    margin-bottom: 15px;
+}
+
+.profileRightBarFrndsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.frndsnamePicProfileBar{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.frndsPicProfileBar{
+height: 110px;
+width: 110px;
+object-fit: cover;
+border-radius: 5px;
 }
