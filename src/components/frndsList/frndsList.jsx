@@ -1,6 +1,6 @@
 import React from 'react'
 import './frndsList.css'
-import {Users} from "../../dummyData"
+
 
 export default function FriendsList({user}){
     return(
