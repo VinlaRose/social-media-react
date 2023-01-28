@@ -1,6 +1,6 @@
-## Social Media App using ReactJS - Slaybook
+## Slaybook
 
-
+ Social Media App using ReactJS
 
 ## To do
 
@@ -20,7 +20,7 @@
 
 ## Visit the site
 
-[The Ice Cream shop](https://slaybook-vin.netlify.app/)
+[Slaybook](https://slaybook-vin.netlify.app/)
 
 ## Run Locally
 
