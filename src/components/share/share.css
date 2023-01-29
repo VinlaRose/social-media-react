@@ -3,9 +3,9 @@
     padding: 15px;
     border-radius: 15px;
     margin: 15px;
-    box-shadow: 4px 3px 27px 5px rgba(0,0,0,0.47);
+    /* box-shadow: 4px 3px 27px 5px rgba(0,0,0,0.47);
 -webkit-box-shadow: 4px 3px 27px 5px rgba(0,0,0,0.47);
--moz-box-shadow: 4px 3px 27px 5px rgba(0,0,0,0.47);
+-moz-box-shadow: 4px 3px 27px 5px rgba(0,0,0,0.47); */
 }
 
 .shareTopbar{
@@ -55,15 +55,17 @@
 }
 
 .shareButton{
-    display:flex;
-    margin-right: 10px;
-    background-color: #C32AA3;
+    
+   
+    background-color: #fe3c72;
     border: none;
-    border-radius: 5px;
-    padding: 7px;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-weight: bold;
     cursor: pointer;
-    margin-bottom: 10px;
-    color: white;
+   
 }
 

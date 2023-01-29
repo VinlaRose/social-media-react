@@ -6,8 +6,8 @@ import Login from "./pages/login/login";
 function App() {
   return(
       // <Home/>
-      // <Profile/>
-      <Login/>
+      <Profile/>
+      // <Login/>
   );
 }
 
