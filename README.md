@@ -2,6 +2,10 @@
 
  Social Media App using ReactJS
 
+## Preview
+
+![alt text](Screenshot(84).png)
+
 ## To do
 
 - [x] A landing page 

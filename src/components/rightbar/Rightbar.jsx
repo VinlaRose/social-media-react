@@ -4,7 +4,7 @@ import OnlineFrnds from '../onlineFrnds/onlineFrnds';
 import { Users } from '../../dummyData';
 
 
-export default function Rightbar({profile}){
+export default function Rightbar(){
 
     
         const HomeRightBar = () => {
@@ -95,10 +95,12 @@ export default function Rightbar({profile}){
             <div className="rightBarContainer">
                 <div className="rightBarWrapper">
                     
-                    <ProfileRightBar/>
+                    <HomeRightBar/>
                     
                 </div>
             </div>
         
             )
+
+        
 }
