@@ -7,20 +7,22 @@
 
 ## Preview
 
-![alt text](./public/assets/Screenshot%20(84).png "Logo Title Text 1")
+
 
 ## To do
 
 - [x] A landing page 
-- [x] 
+<!-- - [x] 
 - [ ] 
-- [ ] 
-- [ ] Search bar.
-- [ ] Login page.
-- [ ] Billing page.
-- [ ]
-- [ ] Home Page.
-- [ ] Floating Notifications bar.
+- [ ]  -->
+
+- [x] Login page.
+
+<!-- - [ ] -->
+- [x] Profile Page.
+
+- [ ] Connect with backend
+
 
 
 
