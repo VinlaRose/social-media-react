@@ -7,7 +7,7 @@
 
 ## Preview
 
-![alt text](./public/assets/Screenshot%20(84).png)
+![alt text](./public/assets/Screenshot%20(84).png "Logo Title Text 1")
 
 ## To do
 
