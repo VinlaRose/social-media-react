@@ -3,7 +3,8 @@
  Social Media App using ReactJS
  
 ## Home Page
-(D:\Users\vince\Pictures\Screenshots"a title")
+![Alt text](D:\Users\vince\Pictures\Screenshots"a title")
+
 
 ## To do
 
