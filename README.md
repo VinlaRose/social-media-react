@@ -1,6 +1,9 @@
 ## Slaybook
 
  Social Media App using ReactJS
+ 
+## Home Page
+![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
 
 ## To do
 
