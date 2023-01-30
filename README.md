@@ -1,6 +1,10 @@
 ## Slaybook
 
  Social Media App using ReactJS
+ 
+## Home Page
+![Alt text](D:\Users\vince\Pictures\Screenshots"a title")
+
 
 ## Preview
 
