@@ -22,9 +22,9 @@ function App() {
     //   <Route path="/src/pages/profilePage" element = {<Profile/>} />;
     //   <Route path="/src/pages/login" element = {<Login/>} />;
     // </Routes>
-      //<Home/>
-      <Profile/>
-      // <Login/>
+      <Home/>
+      //<Profile/>
+      //<Login/>
   );
 }
 
