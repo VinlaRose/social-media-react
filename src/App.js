@@ -1,8 +1,8 @@
 import Home from "./pages/home/Home";
 import React from 'react';
-import Profile from "./pages/profilePage/profile";
-import Login from "./pages/login/login";
-import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
+// import Profile from "./pages/profilePage/profile";
+// import Login from "./pages/login/login";
+// import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
 
 function App() {
   return(
