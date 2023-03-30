@@ -28,67 +28,67 @@ export default function Rightbar(){
             )
         }
 
-        const ProfileRightBar = () => {
-            return(
-                <>
-                <div className="profileuserinfo">
-                <h2 className="profileuserinfohead">
-                    About Me!
-                </h2>
-                <span className="userInfoItem">
-                    Born on: 11 November 1998
-                </span>
+        // const ProfileRightBar = () => {
+        //     return(
+        //         <>
+        //         <div className="profileuserinfo">
+        //         <h2 className="profileuserinfohead">
+        //             About Me!
+        //         </h2>
+        //         <span className="userInfoItem">
+        //             Born on: 11 November 1998
+        //         </span>
                 
-                <span className="userInfoItem">
-                    Living in : Ludhiana
-                </span>
-                <span className="userInfoItem">From: Kerala, India</span>
-                <span className="userInfoItem">
-                    Relationship Status: Committed
-                </span>
-                <span className="userInfoItem">
-                    Followers: 58
-                </span>
+        //         <span className="userInfoItem">
+        //             Living in : Ludhiana
+        //         </span>
+        //         <span className="userInfoItem">From: Kerala, India</span>
+        //         <span className="userInfoItem">
+        //             Relationship Status: Committed
+        //         </span>
+        //         <span className="userInfoItem">
+        //             Followers: 58
+        //         </span>
 
-                </div>
-                <h2 className="profileuserinfohead">
-                    Friends
-                </h2>
-                <div className="profileRightBarFrndsContainer">
+        //         </div>
+        //         <h2 className="profileuserinfohead">
+        //             Friends
+        //         </h2>
+        //         <div className="profileRightBarFrndsContainer">
                 
-                <div className="frndsnamePicProfileBar">
-                    <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
-                    <span className="frndnameProfileBar">Daniel Dsouza</span>
-                </div>
-                <div className="frndsnamePicProfileBar">
-                    <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
-                    <span className="frndnameProfileBar">Daniel Dsouza</span>
-                </div>
-                <div className="frndsnamePicProfileBar">
-                    <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
-                    <span className="frndnameProfileBar">Daniel Dsouza</span>
-                </div>
-                <div className="frndsnamePicProfileBar">
-                    <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
-                    <span className="frndnameProfileBar">Daniel Dsouza</span>
-                </div>
-                <div className="frndsnamePicProfileBar">
-                    <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
-                    <span className="frndnameProfileBar">Daniel Dsouza</span>
-                </div>
-                <div className="frndsnamePicProfileBar">
-                    <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
-                    <span className="frndnameProfileBar">Daniel Dsouza</span>
-                </div>
-                <div className="frndsnamePicProfileBar">
-                    <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
-                    <span className="frndnameProfileBar">Daniel Dsouza</span>
-                </div>
-                </div>
+        //         <div className="frndsnamePicProfileBar">
+        //             <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
+        //             <span className="frndnameProfileBar">Daniel Dsouza</span>
+        //         </div>
+        //         <div className="frndsnamePicProfileBar">
+        //             <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
+        //             <span className="frndnameProfileBar">Daniel Dsouza</span>
+        //         </div>
+        //         <div className="frndsnamePicProfileBar">
+        //             <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
+        //             <span className="frndnameProfileBar">Daniel Dsouza</span>
+        //         </div>
+        //         <div className="frndsnamePicProfileBar">
+        //             <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
+        //             <span className="frndnameProfileBar">Daniel Dsouza</span>
+        //         </div>
+        //         <div className="frndsnamePicProfileBar">
+        //             <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
+        //             <span className="frndnameProfileBar">Daniel Dsouza</span>
+        //         </div>
+        //         <div className="frndsnamePicProfileBar">
+        //             <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
+        //             <span className="frndnameProfileBar">Daniel Dsouza</span>
+        //         </div>
+        //         <div className="frndsnamePicProfileBar">
+        //             <img src="assets/profilepic.jpg" alt="" className="frndsPicProfileBar" />
+        //             <span className="frndnameProfileBar">Daniel Dsouza</span>
+        //         </div>
+        //         </div>
                 
-                </>
-            )
-        }
+        //         </>
+        //     )
+        // }
 
 
         return(    
