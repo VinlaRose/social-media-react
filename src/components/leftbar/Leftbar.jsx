@@ -1,6 +1,6 @@
 import React from 'react';
 import "./leftbar.css";
-import { Home,Group, Login,Timeline, RssFeed, Chat, Groups, Work, QuestionMark, Event, MenuBook, Bookmark} from '@mui/icons-material';
+import { Home, Login,Timeline, RssFeed, Chat, Groups, Work, QuestionMark, Event, MenuBook, Bookmark} from '@mui/icons-material';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import { useNavigate } from 'react-router-dom';
 
