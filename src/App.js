@@ -1,30 +1,28 @@
 //import Home from "./pages/home/Home";
 import React from 'react';
- import Profile from "./pages/profilePage/profile";
-// import Login from "./pages/login/login";
-// import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
+import Topbar from './components/topbar/Topbar';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/home/Home';
+import Profile from './pages/profilePage/profile';
+import Login from './pages/login/login';
+import Rightbar from './components/rightbar/Rightbar';
+
 
 function App() {
   return(
-    // <Router>
-    //   <Switch>
-    //     <Route path="/">
-    //       <Home />
-    //     </Route>
-    //     <Route path="/src/pages/profilePage">
-    //     <Profile />
-    //     </Route>
-    //   </Switch>
-    // </Router>
+    <>
+    <Topbar/>
 
-    // <Routes>
-    //   <Route path="/" element = {<Home/>} />;
-    //   <Route path="/src/pages/profilePage" element = {<Profile/>} />;
-    //   <Route path="/src/pages/login" element = {<Login/>} />;
-    // </Routes>
-      //<Home/>
-      <Profile/>
-      //<Login/>
+
+    <Routes>
+    <Route path="/" element={<Home/>} />
+    <Route path="/profile" element={<Profile/>} />
+    <Route path="/login" element={<Login/>}/>
+    <Route path ="/profile" element={<Profile/>}/>
+    <Route path ="/rightbar" element={<Rightbar/>}/>
+    
+    </Routes>
+    </>
   );
 }
 

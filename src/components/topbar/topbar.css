@@ -97,3 +97,31 @@
     object-fit: cover;
     cursor: pointer;
 }
+.dropdown-container{
+    display: none;
+}
+
+
+
+@media (max-width: 768px){
+    .topbarcontainer{
+        width: 100%;
+    }
+    .topbarcentre{
+        display: none;
+    }
+
+    .topbarright .topbarlinks{
+        display: none;
+    }
+    .topbarleft{
+        display: flex;
+       
+    }
+    .dropdown-container{
+        display: block;
+    }
+    
+   
+
+}

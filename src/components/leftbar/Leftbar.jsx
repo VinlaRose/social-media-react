@@ -1,18 +1,36 @@
 import React from 'react';
 import "./leftbar.css";
-import { RssFeed, Chat, Groups, Work, QuestionMark, Event, MenuBook, Bookmark} from '@mui/icons-material';
+import { Home,Group, Login,Timeline, RssFeed, Chat, Groups, Work, QuestionMark, Event, MenuBook, Bookmark} from '@mui/icons-material';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
-import FriendsList from '../frndsList/frndsList';
-import {Users} from "../../dummyData"
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function Leftbar(){
+    const navigate = useNavigate();
     return(
         
         <div className="leftBarContainer">
             <div className="leftbarwrapper">
                 <ul className="leftbaritemlist">
+
+               
+                <li className="leftbaritem" onClick={() => navigate("/")}>
+                        <Home className="leftbaritemicons"/>
+                        <span className="leftbaritemnames">Home</span>
+                    </li>
+
+
+                    <li className="leftbaritem"  onClick={() => navigate("/login")} >
+                        <Login className="leftbaritemicons"/>
+                        <span className="leftbaritemnames">Login</span>
+                    </li>
+                    
+
+                    <li className="leftbaritem">
+                        <Timeline className="leftbaritemicons"/>
+                        <span className="leftbaritemnames">Timeline</span>
+                    </li>
                     <li className="leftbaritem">
                         <RssFeed className="leftbaritemicons"/>
                         <span className="leftbaritemnames">Feed</span>
@@ -52,15 +70,15 @@ export default function Leftbar(){
                 </ul>
 
 
-                <button className="moreButton">Show More</button>
+                {/* <button className="moreButton">Show More</button> */}
                 <hr className='hrline'/>
 
-                <ul className="friendsList">
+                {/* <ul className="friendsList">
                 {Users.map(u=>
               <FriendsList key = {u.id} user = {u}/>  )}
                     
                     
-                </ul>
+                </ul> */}
 
             </div>
         </div>

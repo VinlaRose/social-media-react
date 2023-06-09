@@ -1,14 +1,24 @@
 import React from 'react';
 import './topbar.css';
 import {Person, Search, Chat, Notifications} from '@mui/icons-material';
-//import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
+import Dropdown from '../dropdown/dropdown';
+
 
 export default function Topbar(){
+  const navigate = useNavigate();
     return(
         <div className = "topbarcontainer">
           <div className="topbarleft">
-            <span className="logo">slaybook</span>
+            <div className="dropdown-container">
+            <Dropdown/>
+
+            </div>
+          
+          <div className="logo">slaybook</div>
           </div>
+
+          
           <div className="topbarcentre">
             <div className="searchbar">
               <Search className="searchbaricon"/>
@@ -21,9 +31,9 @@ export default function Topbar(){
           </div>
           <div className="topbarright">
             <div className="topbarlinks">
-              <span className="topbarlinks">Home</span>
+              <Link to="/"  className="topbarlinks">Home</Link >
               <span className="topbarlinks">Timeline</span>
-              <span className="topbarlinks" href="/src/pages/login">Login</span>
+              <Link to="/login" className="topbarlinks">Login</Link>
             </div>
             <div className="topbaricons">
               <div className="topBarIconItem">
@@ -39,13 +49,8 @@ export default function Topbar(){
                 <span className="topbariconbadge">1</span>
               </div>
             </div>
-            
-            
-            
-            <img src="\assets\Reji.jpg" alt="" className="topbarImg" />
-        
-            
-          </div>
+            <img src="\assets\Reji.jpg" alt="" className="topbarImg" onClick={()=>navigate("/profile")} />
+         </div>
         </div>
     )
 }

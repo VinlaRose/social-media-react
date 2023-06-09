@@ -4,7 +4,9 @@
     display: flex;
 }
 
-
+.leftprofilebar{
+    flex: 2
+}
 
 .rightprofileBar{
    
@@ -46,4 +48,25 @@ position: relative;
 
 .rightProfileBottom{
     display: flex;
+}
+
+.profile-feed{
+flex:7
+}
+
+.profile-rightbar{
+flex:3
+}
+
+
+
+@media (max-width: 768px){
+    .leftprofilebar{
+        display: none;
+    }
+
+    .profile-rightbar{
+        display: none;
+    }
+
 }
