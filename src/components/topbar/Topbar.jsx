@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './topbar.css';
 import {Person, Search, Chat, Notifications} from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
 import Dropdown from '../dropdown/dropdown';
+import { AuthContext } from '../../Authentication/AuthContext';
 
 
 export default function Topbar(){
+  const {user, logoutHandler} = useContext(AuthContext);
+  const {encodedToken} = user;
   const navigate = useNavigate();
     return(
         <div className = "topbarcontainer">
@@ -32,8 +35,7 @@ export default function Topbar(){
           <div className="topbarright">
             <div className="topbarlinks">
               <Link to="/"  className="topbarlinks">Home</Link >
-              <span className="topbarlinks">Timeline</span>
-              <Link to="/login" className="topbarlinks">Login</Link>
+              
             </div>
             <div className="topbaricons">
               <div className="topBarIconItem">
@@ -49,7 +51,21 @@ export default function Topbar(){
                 <span className="topbariconbadge">1</span>
               </div>
             </div>
-            <img src="\assets\Reji.jpg" alt="" className="topbarImg" onClick={()=>navigate("/profile")} />
+
+            {
+              !encodedToken && <img src="\assets\blank-profile-picture.png" alt="" className="topbarImg" onClick={()=>navigate("/profile")} />
+
+            }
+
+            
+           
+
+            {
+              
+              encodedToken && <>  <img src="\assets\Reji.jpg" alt="" className="topbarImg" onClick={()=>navigate("/profile")} /> <div className="topBarIconItem" onClick={logoutHandler} >Logout</div></>
+            }
+
+            
          </div>
         </div>
     )

@@ -100,3 +100,18 @@
     width: 60%;
     align-self: center;
 }
+
+@media (max-width: 768px){
+    .loginLeft{
+        display: none;
+    }
+    .loginWrapper{
+        height: 100%;
+        width: 100%;
+        
+    
+       
+        
+    
+    }
+}
