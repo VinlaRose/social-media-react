@@ -57,6 +57,19 @@
     margin-left: 50px;
     justify-content: space-between;
 }
+.signinBox{
+    height: 400px;
+    padding: 20px;
+    background-color: #424242;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    justify-content: space-between;
+}
+
+
 
 .loginaddress{
     height: 35px;
@@ -88,17 +101,30 @@
     
 }
 
+.guestLogin{
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+
 .loginRegister{
      height: 40px;
     border-radius: 10px;
     border: none;
-    background-color: #fe3c72;
+    /* background-color: #fe3c72; */
     color: #ffffff;
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
     width: 60%;
     align-self: center;
+    background-color: #fe3c72;
+}
+
+.loginRegister:hover {
+    background-color: #FF7854;
 }
 
 @media (max-width: 768px){

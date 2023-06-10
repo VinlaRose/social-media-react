@@ -1,24 +1,47 @@
 //import Home from "./pages/home/Home";
-import React from 'react';
+import React, { useContext } from 'react';
 import Topbar from './components/topbar/Topbar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Profile from './pages/profilePage/profile';
 import Login from './pages/login/login';
 import Rightbar from './components/rightbar/Rightbar';
+import Signin from './pages/signup/Signup';
+import { RequiresAuth } from './Authentication/RequireAuth';
+import { AuthContext } from './Authentication/AuthContext';
 
 
 function App() {
+  const {user} = useContext(AuthContext);
+  const {encodedToken} = user;
   return(
     <>
-    <Topbar/>
+    {
+      encodedToken &&  <Topbar/>
+    }
+   
 
 
     <Routes>
-    <Route path="/" element={<Home/>} />
-    <Route path="/profile" element={<Profile/>} />
+    
+    <Route
+          path="/"
+          element={
+            <RequiresAuth>
+              <Home />
+            </RequiresAuth>
+          }
+        />
     <Route path="/login" element={<Login/>}/>
-    <Route path ="/profile" element={<Profile/>}/>
+    <Route path="/signup" element={<Signin/>}/>
+    <Route
+          path="/profile"
+          element={
+            <RequiresAuth>
+              <Profile />
+            </RequiresAuth>
+          }
+        />
     <Route path ="/rightbar" element={<Rightbar/>}/>
     
     </Routes>

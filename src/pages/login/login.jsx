@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import './login.css';
 import { AuthContext } from '../../Authentication/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login(){
-    const {handleLogin, creds, handleInputChange, handleSubmit}  = useContext(AuthContext)
+    const {handleLogin, creds, handleInputChange, handleSubmit, handleGuestLogin}  = useContext(AuthContext);
+    const navigate = useNavigate();
     return(
         <div className="login">
             <div className="loginWrapper">
@@ -33,7 +35,8 @@ export default function Login(){
                  />
                 <button onClick={handleLogin} className="loginButton">Login</button>
                 <span className="forgotPswrd">Forgot Password?</span>
-                <button className="loginRegister">Create a new account</button>
+                <span className="guestLogin" onClick={handleGuestLogin}>Login with guest credentials</span>
+                <button className="loginRegister" onClick={() => navigate("/signup")}>Create a new account</button>
                 <button  type="submit" style={{ display: 'none' }}></button>
                 
                 </div>

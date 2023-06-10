@@ -74,10 +74,75 @@ export function AuthProvider({ children }) {
     setUser({});
     
   }
+
+
+  const [signUpcreds, setSignUpCreds] = useState({
+    firstName: '',
+    lastName: '',
+    username: '',
+    password: ''
+  });
+  const handleGuestLogin = () => {
+    const guestCreds = {
+  username: "vinlarose",
+  password: "vinlarose",
+    };
+    setCreds(guestCreds);
+    handleLogin();
+  };
+
+  const handleSinUpInputChange = (e) => {
+    const { name, value } = e.target;
+    setSignUpCreds(prevCreds => ({
+      ...prevCreds,
+      [name]: value
+    }));
+
+  };
+
+
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault();
+    console.log(signUpcreds); // You can perform further actions with the `creds` object here
+  };
+
+
+  const handleSignUp = async () => {
+    // handleSignUpSubmit(new Event('submit'));
+    try {
+   
+      const response = await fetch("/api/auth/signup" , {
+      method: 'POST',
+      body: JSON.stringify(signUpcreds)});
+
+      const userData = await response.json();
+      console.log(userData)
+
+      const {encodedToken, createdUser} = userData
+      if(encodedToken){
+        localStorage.setItem(
+          key,
+          JSON.stringify({createdUser: createdUser, encodedToken: encodedToken})
+        );
+        setUser(JSON.parse(localStorage.getItem(key)));
+        navigate(location?.state?.from?.pathname)
+      };
+
+     
+   
+
+    }catch(e){
+      console.error(e);
+      const errormsg = e.errors;
+      console.log(errormsg)
+    }
+  }
+
   
 
   return (
-    <AuthContext.Provider  value={{user, handleLogin ,logoutHandler, handleInputChange, handleSubmit, creds}}>
+    <AuthContext.Provider  value={{user, handleLogin ,logoutHandler, handleInputChange, handleSubmit, creds,handleGuestLogin,
+    handleSignUp, handleSignUpSubmit, handleSinUpInputChange, signUpcreds}}>
       {children}
     </AuthContext.Provider>
   );

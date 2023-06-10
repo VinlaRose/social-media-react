@@ -52,6 +52,15 @@ export default function Topbar(){
               </div>
             </div>
 
+
+            {
+              encodedToken && <div className="topBarIconItem"  >
+                {
+                  user.foundUser ? <p>{user.foundUser.firstName}</p> : <p>{user.createdUser.firstName}</p>
+                }
+              </div> 
+            }
+
             {
               !encodedToken && <img src="\assets\blank-profile-picture.png" alt="" className="topbarImg" onClick={()=>navigate("/profile")} />
 
