@@ -11,6 +11,7 @@ import { RequiresAuth } from './Authentication/RequireAuth';
 import { AuthContext } from './Authentication/AuthContext';
 
 
+
 function App() {
   const {user} = useContext(AuthContext);
   const {encodedToken} = user;
@@ -34,6 +35,7 @@ function App() {
         />
     <Route path="/login" element={<Login/>}/>
     <Route path="/signup" element={<Signin/>}/>
+    
     <Route
           path="/profile"
           element={

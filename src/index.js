@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { makeServer } from "./server";
 import App from './App';
 import { AuthProvider } from './Authentication/AuthContext';
+import { PostDataProvider } from './Data/posts';
+
 
 
 // Call make Server
@@ -16,8 +18,15 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <AuthProvider>
-    <App />
+     
+      <PostDataProvider>
+      <App />
 
+      </PostDataProvider>
+
+  
+      
+    
     </AuthProvider>
     
     </BrowserRouter>

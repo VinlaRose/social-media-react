@@ -1,0 +1,37 @@
+
+.sortPosts {
+    display: flex;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px;
+  }
+  
+  .trending,
+  .mostRecent {
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex:1;
+    
+    margin: 3px;
+  }
+  
+  .trending:hover,
+  .mostRecent:hover {
+    background-color: #ddd;
+  }
+  
+  
+  .centeredText {
+    margin:  auto;
+    display: flex;
+  }
+  
+  .filterIcon{
+    margin-right: 3px;
+  }
+.filterText{
+  align-self: center;
+}
