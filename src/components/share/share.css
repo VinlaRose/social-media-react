@@ -25,6 +25,7 @@
     border: none;
     background-color: whitesmoke;
     margin-left: 15px;
+    white-space: normal;
 }
 
 .writePost:focus{
