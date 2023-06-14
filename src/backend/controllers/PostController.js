@@ -21,11 +21,14 @@ export const getAllpostsHandler = function () {
  * */
 
 export const getPostHandler = function (schema, request) {
+  console.log(request.params.postId)
   const postId = request.params.postId;
+  
   try {
     const post = schema.posts.findBy({ _id: postId }).attrs;
     return new Response(200, {}, { post });
   } catch (error) {
+    console.error(error)
     return new Response(
       500,
       {},
@@ -64,9 +67,9 @@ export const getAllUserPostsHandler = function (schema, request) {
  * */
 
 export const createPostHandler = function (schema, request) {
-  console.log(request.requestBody)
+ 
   const user = requiresAuth.call(this, request);
-  console.log(user)
+
   try {
     if (!user) {
       return new Response(
@@ -80,7 +83,7 @@ export const createPostHandler = function (schema, request) {
       );
     }
     const { postData } = JSON.parse(request.requestBody);
-    console.log(postData)
+
     const post = {
       _id: uuid(),
       ...postData,
@@ -89,13 +92,15 @@ export const createPostHandler = function (schema, request) {
         likedBy: [],
         dislikedBy: [],
       },
-      username: user.foundUser.username,
+      username: user.username,
       createdAt: formatDate(),
       updatedAt: formatDate(),
     };
+    console.log(post);
     this.db.posts.insert(post);
     return new Response(201, {}, { posts: this.db.posts });
   } catch (error) {
+    console.error(error);
     return new Response(
       500,
       {},

@@ -3,38 +3,40 @@ import "./share.css";
 import "../../components/commonstyle.css"
 import {PermMedia, LocationOn, Loyalty, EmojiEmotions} from '@mui/icons-material';
 import { AuthContext } from '../../Authentication/AuthContext';
+import { PostDataContext } from '../../Data/posts';
 
 export default function Share(){
     const [content, setContent] = useState('');
     const {user} = useContext(AuthContext);
     const {foundUser, encodedToken} = user;
-    console.log(user);
+    const {getData} = useContext(PostDataContext);
+   
 
     const sharePostInputHandler = (e) => {
         setContent(e.target.value);
     }
 
 
-    const shareButton =  () => {
-      const contentss = {content: "vinla"}
-
+    const shareButton = async () => {
+        console.log(content);
+        const contentss = { "content": content };
+      
         const makePost = async () => {
-            try {
-     
-                const response = await fetch("/api/posts" , {
-                method: 'POST',
-                body:  JSON.stringify(contentss),
-                headers: {authorization : encodedToken}
-                
-              
-              });
-              console.log(response)
-              }catch(e){
-                console.error(e)
-              }
-        }
-        makePost();
-        }
+          try {
+            const response = await fetch("/api/posts", {
+              method: 'POST',
+              body: JSON.stringify({ postData: contentss }), // Wrap contentss in postData object
+              headers: { authorization: encodedToken }
+            });
+            console.log(response);
+          } catch (e) {
+            console.error(e);
+          }
+        };
+      
+        await makePost(); // Wait for the API call to finish;
+        getData();
+      };
       
     
 

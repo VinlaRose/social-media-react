@@ -4,16 +4,32 @@ import {MoreVert} from '@mui/icons-material';
 import { useState } from 'react';
 import { PostDataContext } from '../../Data/posts';
 import { getTimeAgo } from '../../functions/dateconverter';
+import OptionsComponent from '../dotMenu/dotMenu';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import { AuthContext } from '../../Authentication/AuthContext';
 
 export default function Post({post}){
-    const {state} = useContext(PostDataContext)
+    const {state, getData} = useContext(PostDataContext);
+    const {user} = useContext(AuthContext);
+    const {encodedToken} = user;
     
-    const [like,setLike] = useState(1);
-    const [isLiked,setIsLiked] = useState(false)
     
-    const likeHandler =()=>{
-        setLike(isLiked ? like -1 : like+1);
-        setIsLiked(!isLiked)
+    const likeHandler =(id)=>{
+       console.log(id);
+       const likePost = async () => {
+        try {
+          const response = await fetch(`/api/posts/like/${id}`, {
+            method: 'POST',
+            headers: { authorization: encodedToken }
+          });
+          console.log(response);
+        } catch (e) {
+          console.error(e);
+        }
+      };
+
+      likePost();
+      getData();
         
     }
 
@@ -47,7 +63,8 @@ const userProfile = (name) => {
                     getTimeAgo(post.updatedAt)
                     }</span>
                     </div>
-                    <MoreVert/>
+                    <div className="dots"><OptionsComponent  id={post._id}/></div>
+                    
                 </div>
                 <div className="postMiddle">
                 <span className="postText">{post?.content}</span>
@@ -56,8 +73,8 @@ const userProfile = (name) => {
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img src="assets/like.jpg" onClick={likeHandler} alt="" className="postButton"/>
-                        {/* <img src="assets/like.jpg"onClick={likeHandler}  alt="" className="postButton"/> */}
+                        <ThumbUpAltIcon onClick={() => likeHandler(post._id)}/>
+                       
                         <span className="likeCount">{post.likes.likeCount}</span>
                     </div>
                     <div className="postBottomRight">9 comments

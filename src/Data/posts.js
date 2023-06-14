@@ -10,30 +10,31 @@ export const PostDataContext = createContext();
 
 export const PostDataProvider = ({children}) => {
 const [state, dispatch] = useReducer(reducer, initialState);
+
+const getData = async () => {
+    try {
+
+        //getting all posts
+      const response = await fetch("api/posts");
+
+      const data = await response.json();
+      dispatch({ type: 'FETCH_SUCCESS', payload: {posts: data.posts} });
+      
     
+
+
+    
+      }
+
+     
+    catch(e){
+     console.log(e)
+     }
+    };
     
     useEffect(() => {
         //POSTS
-        const getData = async () => {
-            try {
 
-                //getting all posts
-              const response = await fetch("api/posts");
-        
-              const data = await response.json();
-              dispatch({ type: 'FETCH_SUCCESS', payload: {posts: data.posts} });
-              
-            
-
-
-            
-              }
-        
-             
-            catch(e){
-             console.log(e)
-             }
-            };
         getData();
 
 
@@ -56,7 +57,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
     
 
     return (
-        <PostDataContext.Provider value={{state, dispatch}}>
+        <PostDataContext.Provider value={{state, dispatch, getData}}>
             {children}
         </PostDataContext.Provider>
     )
