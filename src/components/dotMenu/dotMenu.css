@@ -1,5 +1,8 @@
+
+
+
 .options-container {
-    position: relative;
+    
     display: inline-block;
   }
   
@@ -7,8 +10,7 @@
   
   .options-box {
     position: absolute;
-    
-    right: 19rem;
+    right: 2rem;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 2px;

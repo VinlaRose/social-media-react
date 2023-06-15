@@ -111,7 +111,8 @@ const OptionsComponent = ({id}) => {
   };
 
   return (
-    <div>
+    <>
+   
       <div className="options-container" onClick={() => handleToggleOptions(id)}>
         <MoreVert/>
       </div>
@@ -151,7 +152,7 @@ const OptionsComponent = ({id}) => {
         </div>
       )}
     </div>
-    </div>
+    </>
   );
 };
 
