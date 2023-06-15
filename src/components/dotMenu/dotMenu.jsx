@@ -19,7 +19,7 @@ const OptionsComponent = ({id}) => {
   
     setShowOptions(!showOptions);
     const getPost = async () => {
-      console.log(id);
+     
       try {
         const response = await fetch(`/api/posts/${id}`, {
           method: 'GET',
@@ -83,8 +83,7 @@ const OptionsComponent = ({id}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsEditing(false);
-    // Perform any submission logic here
-    console.log('Submitted:', text);
+   
   };
 
   const handleChange = (event) => {
@@ -94,6 +93,7 @@ const OptionsComponent = ({id}) => {
 
   const handleEditing = (id) => {
     // Perform edit action here
+    console.log(id)
     const editPost = async () => {
       try {
         const response = await fetch(` /api/posts/edit/${id}`, {
@@ -108,8 +108,9 @@ const OptionsComponent = ({id}) => {
     };
     editPost();
     getData();
-    console.log('Edit option clicked');
+
     setShowModal(!showModal);
+    setShowOptions(!showOptions);
   };
 
   return (
