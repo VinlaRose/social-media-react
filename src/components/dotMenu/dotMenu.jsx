@@ -83,6 +83,7 @@ const OptionsComponent = ({id}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsEditing(false);
+    console.log(text)
    
   };
 
@@ -93,8 +94,9 @@ const OptionsComponent = ({id}) => {
 
   const handleEditing = (id) => {
     // Perform edit action here
-    console.log(id)
+    
     const editPost = async () => {
+      console.log(id)
       try {
         const response = await fetch(` /api/posts/edit/${id}`, {
           method: 'POST',
@@ -149,7 +151,7 @@ const OptionsComponent = ({id}) => {
           <button onClick={handleEdit}>Edit</button>
         </div>
       )}</p> */}
-            <button onClick={handleEditing}>Post</button>
+            <button onClick={() => handleEditing(id)}>Post</button>
           </div>
         </div>
       )}
