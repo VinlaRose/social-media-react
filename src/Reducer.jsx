@@ -3,7 +3,7 @@ export const initialState = {
     users:[],
     posts: [],
     filteredPosts : [],
-    specificUserPost: [],
+    currentPost: [],
     filterType: '',
 }
 
@@ -41,7 +41,12 @@ export const reducer = (state, action) =>{
                 ...state,
                 filterType: action.payload,
                 filteredPosts: filteringPosts(state.posts,action.payload)
-            }  
+            }
+        case 'CURRENT_POST':
+                return{
+                    ...state,
+                   currentPost: action.payload,
+                }  
         default:
             return state;
         

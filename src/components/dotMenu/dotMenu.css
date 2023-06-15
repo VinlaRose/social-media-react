@@ -58,4 +58,15 @@
   button {
     margin-top: 10px;
   }
-  
+  .resizable-input {
+    resize: vertical;
+    min-height: 60px;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+    

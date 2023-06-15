@@ -21,7 +21,6 @@ export const getAllpostsHandler = function () {
  * */
 
 export const getPostHandler = function (schema, request) {
-  console.log(request.params.postId)
   const postId = request.params.postId;
   
   try {

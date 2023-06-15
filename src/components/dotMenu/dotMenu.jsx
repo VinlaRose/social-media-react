@@ -1,15 +1,15 @@
 
-import {MoreVert} from '@mui/icons-material';
+import {EditRoad, MoreVert} from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './dotMenu.css'
 import { PostDataContext } from '../../Data/posts';
 import { AuthContext } from '../../Authentication/AuthContext';
 
 const OptionsComponent = ({id}) => {
   const [showOptions, setShowOptions] = useState(false);
-  const {getData} = useContext(PostDataContext);
+  const {getData, state, dispatch} = useContext(PostDataContext);
   const {user} = useContext(AuthContext);
   const {encodedToken} = user;
 
@@ -18,16 +18,6 @@ const OptionsComponent = ({id}) => {
   const handleToggleOptions = (id) => {
   
     setShowOptions(!showOptions);
-    console.log(id)
-  };
-
-  const [showModal, setShowModal] = useState(false);
-
-  const handleToggleModal = (id) => {
-    setShowModal(!showModal);
-    
-
-
     const getPost = async () => {
       console.log(id);
       try {
@@ -35,13 +25,17 @@ const OptionsComponent = ({id}) => {
           method: 'GET',
           headers: { authorization: encodedToken }
         });
-        console.log(response)
+        const data = await response.json();
+        dispatch({ type: 'CURRENT_POST', payload: data.post });
+        
       } catch (e) {
         console.error(e);
       }
     };
-    getPost();
+  getPost();
   };
+
+
 
   const handleDelete = (id) => {
 
@@ -66,9 +60,54 @@ const OptionsComponent = ({id}) => {
     console.log('Delete option clicked');
   };
 
+  //EDITING POST
 
-  const handleEdit = (id) => {
+  const [showModal, setShowModal] = useState(false);
+  const [text, setText] = useState('');
+
+  const handleToggleModal = (id) => {
+    setShowModal(!showModal);
+    setText(state.currentPost.content)
+
+ 
+  };
+
+  
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleEdit = () => {
+    setText(state.currentPost.content)
+    setIsEditing(true);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsEditing(false);
+    // Perform any submission logic here
+    console.log('Submitted:', text);
+  };
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
+
+  const handleEditing = (id) => {
     // Perform edit action here
+    const editPost = async () => {
+      try {
+        const response = await fetch(` /api/posts/edit/${id}`, {
+          method: 'POST',
+          body: JSON.stringify({ postData: text }), // Wrap contentss in postData object
+          headers: { authorization: encodedToken }
+        });
+        console.log(response);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    editPost();
+    getData();
     console.log('Edit option clicked');
     setShowModal(!showModal);
   };
@@ -93,8 +132,23 @@ const OptionsComponent = ({id}) => {
         <div className="modal-overlay">
           <div className="modal-content">
             <h2>Edit Post</h2>
-            <p>This is the content of the modal.</p>
-            <button onClick={handleEdit}>Post</button>
+            <form onSubmit={handleSubmit}>
+              <textarea className="resizable-input" type="text" value={text} onChange={handleChange} />
+              <button type="submit">Submit</button>
+            </form>
+            
+            {/* <p>{isEditing ? (
+        <form onSubmit={handleSubmit}>
+          <textarea className="resizable-input" type="text" value={text} onChange={handleChange} />
+          <button type="submit">Submit</button>
+        </form>
+      ) : (
+        <div>
+          <p>{text}</p>
+          <button onClick={handleEdit}>Edit</button>
+        </div>
+      )}</p> */}
+            <button onClick={handleEditing}>Post</button>
           </div>
         </div>
       )}
