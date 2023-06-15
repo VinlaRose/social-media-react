@@ -12,13 +12,6 @@ export const FilterButtons  = () => {
         
     }
 
-    const colorChange = () => {
-        if(state.filterType === "recent"){
-            return "red"
-        }else{
-            return "black"
-        }
-    }
 
 
 
