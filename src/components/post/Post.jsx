@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import "./post.css";
-import {MoreVert} from '@mui/icons-material';
-import { useState } from 'react';
 import { PostDataContext } from '../../Data/posts';
 import { getTimeAgo } from '../../functions/dateconverter';
 import OptionsComponent from '../dotMenu/dotMenu';

@@ -1,8 +1,8 @@
 
-import {EditRoad, MoreVert} from '@mui/icons-material';
+import { MoreVert} from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './dotMenu.css'
 import { PostDataContext } from '../../Data/posts';
 import { AuthContext } from '../../Authentication/AuthContext';
@@ -73,16 +73,11 @@ const OptionsComponent = ({id}) => {
   };
 
   
-  const [isEditing, setIsEditing] = useState(false);
 
-  const handleEdit = () => {
-    setText(state.currentPost.content)
-    setIsEditing(true);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsEditing(false);
+ 
     console.log(text)
    
   };
