@@ -8,7 +8,7 @@ import { PostDataContext } from '../../Data/posts';
 export default function Share(){
     const [content, setContent] = useState('');
     const {user} = useContext(AuthContext);
-    const {foundUser, encodedToken} = user;
+    const {encodedToken} = user;
     const {getData} = useContext(PostDataContext);
    
 
@@ -44,7 +44,10 @@ export default function Share(){
     return(
         <div className="shareContainer">
             <div className="shareTopbar">
-                <img src={foundUser.profilePicture} alt="" className="shareprofileImage" />
+                {
+                    user.foundUser ? <img src={user.foundUser.profilePicture} alt="" className="shareprofileImage" /> : <img src={user.createdUser.profilePicture} alt="" className="shareprofileImage" />
+                }
+                
                 <input placeholder="What's in your mind?" type="text" className="writePost" onChange={ sharePostInputHandler}/>
 
             </div>

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Feed from '../../components/feed/Feed';
 import Leftbar from '../../components/leftbar/Leftbar';
 import Rightbar from '../../components/rightbar/Rightbar';
 
 import './profile.css';
+import { AuthContext } from '../../Authentication/AuthContext';
 export default function Profile(){
+    const {user} = useContext(AuthContext)
     return(
         <div>
             
@@ -21,7 +23,10 @@ export default function Profile(){
             
                 </div>
                 <div className="profileInfo">
-                    <h2 className="name">Vinla Rose</h2>
+                    {
+                        user.foundUser ? <h2 className="name">{user.foundUser.firstName}</h2> : <h2 className="name">{user.createdUser.firstName}</h2>
+                    }
+                    
                     <span className="profielBio">Hi Friends!!</span>
                 </div>
 

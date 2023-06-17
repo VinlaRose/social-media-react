@@ -106,37 +106,46 @@ export function AuthProvider({ children }) {
     console.log(signUpcreds); // You can perform further actions with the `creds` object here
   };
 
+  const handleSignUp = () => {
+    handleSignUpSubmit(new Event('submit'));
 
-  const handleSignUp = async () => {
-    // handleSignUpSubmit(new Event('submit'));
-    try {
-   
-      const response = await fetch("/api/auth/signup" , {
-      method: 'POST',
-      body: JSON.stringify(signUpcreds)});
-
-      const userData = await response.json();
-      console.log(userData)
-
-      const {encodedToken, createdUser} = userData
-      if(encodedToken){
-        localStorage.setItem(
-          key,
-          JSON.stringify({createdUser: createdUser, encodedToken: encodedToken})
-        );
-        setUser(JSON.parse(localStorage.getItem(key)));
-        navigate(location?.state?.from?.pathname)
-      };
-
+    const signUp = async () => {
+      handleSignUpSubmit(new Event('submit'));
+      try {
      
-   
-
-    }catch(e){
-      console.error(e);
-      const errormsg = e.errors;
-      console.log(errormsg)
+        const response = await fetch("/api/auth/signup" , {
+        method: 'POST',
+        body: JSON.stringify(signUpcreds)});
+  
+        const userData = await response.json();
+        console.log(userData)
+  
+        const {encodedToken, createdUser} = userData
+        if(encodedToken){
+          localStorage.setItem(
+            key,
+            JSON.stringify({createdUser: createdUser, encodedToken: encodedToken})
+          );
+          setUser(JSON.parse(localStorage.getItem(key)));
+          navigate(location?.state?.from?.pathname)
+        };
+  
+       
+     
+  
+      }catch(e){
+        console.error(e);
+        const errormsg = e.errors;
+        console.log(errormsg)
+      }
     }
+
+    signUp();
+
   }
+
+
+  
 
   
 

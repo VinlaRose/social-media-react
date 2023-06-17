@@ -15,7 +15,9 @@ export default function Signin(){
 
                 </div>
                 <div className="loginRight">
-                <form className="login-form" onSubmit={handleSignUpSubmit}>
+                
+                <div className="login-form">
+                <form  onSubmit={handleSignUpSubmit}>
                 <div className="signinBox">
                 
                 <input 
@@ -48,12 +50,19 @@ export default function Signin(){
                 onChange={handleSinUpInputChange}
                  />
                 <button onClick={handleSignUp} className="loginButton">Sign in</button>
-                <span className="forgotPswrd">Already registered?</span>
-                <button className="loginRegister" onClick={() => navigate("/login")}>Login</button>
-                <button  type="submit" style={{ display: 'none' }}></button>
+                
+                <button  type="submit" style={{display
+                : "none"}} >submit</button>
                 
                 </div>
                 </form>
+                {/* <span className="forgotPswrd">Already registered?</span>
+                <button className="loginRegister" onClick={() => navigate("/login")}>Login</button> */}
+
+                </div>
+
+
+               
                 
 
                 </div>
