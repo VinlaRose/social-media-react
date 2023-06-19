@@ -7,7 +7,7 @@ import { AuthContext } from '../../Authentication/AuthContext';
 
 
 export default function Topbar(){
-  const {user, logoutHandler} = useContext(AuthContext);
+  const {user, logoutHandler,currentUser} = useContext(AuthContext);
   const {encodedToken} = user;
   const navigate = useNavigate();
     return(
@@ -71,7 +71,7 @@ export default function Topbar(){
 
             {
               
-              encodedToken && <>  <img src="\assets\Reji.jpg" alt="" className="topbarImg" onClick={()=>navigate("/profile")} /> <div className="topBarIconItem" onClick={logoutHandler} >Logout</div></>
+              encodedToken && <>  <img src={currentUser.profilePicture} alt="" className="topbarImg" onClick={()=>navigate("/profile")} /> <div className="topBarIconItem" onClick={logoutHandler} >Logout</div></>
             }
 
             

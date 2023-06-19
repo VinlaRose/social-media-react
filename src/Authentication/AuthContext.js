@@ -145,9 +145,18 @@ export function AuthProvider({ children }) {
     }
 
     signUp();
+   
 
   }
+let currentUser;
+  if(user.encodedToken){
+    currentUser = user.foundUser ? user.foundUser : user.createdUser;
+  
+    console.log("current user: " , currentUser);
+    
+  }
 
+  
 
   
 
@@ -155,7 +164,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider  value={{user, handleLogin ,logoutHandler, handleInputChange, handleSubmit, creds,handleGuestLogin,
-    handleSignUp, handleSignUpSubmit, handleSinUpInputChange, signUpcreds}}>
+    handleSignUp, handleSignUpSubmit, handleSinUpInputChange, signUpcreds, currentUser}}>
       {children}
     </AuthContext.Provider>
   );
