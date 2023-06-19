@@ -9,6 +9,7 @@ import Rightbar from './components/rightbar/Rightbar';
 import Signin from './pages/signup/Signup';
 import { RequiresAuth } from './Authentication/RequireAuth';
 import { AuthContext } from './Authentication/AuthContext';
+import { UserPage } from './pages/UserPages/UserPage';
 
 
 
@@ -41,6 +42,14 @@ function App() {
           element={
             <RequiresAuth>
               <Profile />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/peopleprofile/:_id"
+          element={
+            <RequiresAuth>
+              <UserPage/>
             </RequiresAuth>
           }
         />

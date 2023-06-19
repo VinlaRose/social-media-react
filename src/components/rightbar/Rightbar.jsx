@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./rightbar.css";
 import OnlineFrnds from '../onlineFrnds/onlineFrnds';
-import { Users } from '../../dummyData';
+import { PostDataContext } from '../../Data/posts';
+
 
 
 export default function Rightbar(){
+    
 
     
         const HomeRightBar = () => {
+            const {state} = useContext(PostDataContext)
             return(
                 <>
                 <div className="bdayMsg">
@@ -17,10 +20,10 @@ export default function Rightbar(){
                     <div className="adBox">
                         <img src="assets/add1.jpg" alt="" className="adImg" />
                     </div>
-                    <h4 className='onlineFrndsHeading'>Online Friends</h4>
+                    <h4 className='onlineFrndsHeading'>People Around You</h4>
 
                     <ul className="friendsList">
-                    {Users.map(u=>
+                    {state.users.map(u=>
               <OnlineFrnds key = {u.id} user = {u}/>  )}
                     </ul>
                         

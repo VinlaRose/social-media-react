@@ -6,7 +6,7 @@ import Rightbar from '../../components/rightbar/Rightbar';
 import './profile.css';
 import { AuthContext } from '../../Authentication/AuthContext';
 export default function Profile(){
-    const {user} = useContext(AuthContext)
+    const {user, currentUser} = useContext(AuthContext)
     return(
         <div>
             
@@ -18,7 +18,7 @@ export default function Profile(){
                 <div className="rightprofileTop">
                 <div className="profileCover">
                     <img src="assets/cover.jpg" alt="" className="coverPic" />
-                    <img src="assets/profile.jpg" alt="" className="profilepic" />
+                    <img src={currentUser.profilePicture} alt="" className="profilepic" />
                 </div>
             
                 </div>
