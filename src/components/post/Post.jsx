@@ -35,11 +35,8 @@ const userFirstName = (name) => {
     return state.users.find((item) => item.username === name)
 }
 
-const userProfile = (name) => {
-    return state.users.find((item) => item.username === name)
-}
 
-console.log(userFirstName("vinlarose"))
+
 
 
 
@@ -52,11 +49,11 @@ console.log(userFirstName("vinlarose"))
                 <div className="postTop">
                     <div className="postTopLeft">
                     <img src={
-                            post.username.profilePicture
+                            userFirstName(post.username).profilePicture
                         } alt="" className="postProfile" />
                     <span className="postProfileName">
                         {
-                            post.username.firstName
+                           userFirstName(post.username).firstName
                         }
                     </span>
                     <span className="postDate">{

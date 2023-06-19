@@ -1,11 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { PostDataContext } from "../Data/posts";
 
 
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
+  const {getData, getUsersData} = useContext(PostDataContext);
+   
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -127,6 +130,7 @@ export function AuthProvider({ children }) {
             JSON.stringify({createdUser: createdUser, encodedToken: encodedToken})
           );
           setUser(JSON.parse(localStorage.getItem(key)));
+          getUsersData();
           navigate(location?.state?.from?.pathname)
         };
   

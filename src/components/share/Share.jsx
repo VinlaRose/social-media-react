@@ -9,9 +9,8 @@ export default function Share(){
     const [content, setContent] = useState('');
     const {user} = useContext(AuthContext);
     const {encodedToken} = user;
-    const {getData} = useContext(PostDataContext);
+    const {getData, getUsersData} = useContext(PostDataContext);
    
-
     const sharePostInputHandler = (e) => {
         setContent(e.target.value);
     }
@@ -35,6 +34,7 @@ export default function Share(){
         };
       
         await makePost(); // Wait for the API call to finish;
+        getUsersData();
         getData();
       };
       

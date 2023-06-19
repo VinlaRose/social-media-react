@@ -31,6 +31,19 @@ const getData = async () => {
      console.log(e)
      }
     };
+
+    const getUsersData = async () => {
+        try{
+              //getting all users
+          const response2 = await fetch("api/users");
+    
+          const response2Data = await response2.json();
+          dispatch({ type: 'FETCH_USERS', payload: {users: response2Data.users} });
+    
+        }catch(e){
+            console.log(e)
+            }
+    };
     
     useEffect(() => {
         //POSTS
@@ -40,24 +53,13 @@ const getData = async () => {
 
         //USERS
 
-        const getUsersData = async () => {
-            try{
-                  //getting all users
-              const response2 = await fetch("api/users");
         
-              const response2Data = await response2.json();
-              dispatch({ type: 'FETCH_USERS', payload: {users: response2Data.users} });
-        
-            }catch(e){
-                console.log(e)
-                }
-        };
         getUsersData();
         },[]);
     
 
     return (
-        <PostDataContext.Provider value={{state, dispatch, getData}}>
+        <PostDataContext.Provider value={{state, dispatch, getData, getUsersData}}>
             {children}
         </PostDataContext.Provider>
     )
