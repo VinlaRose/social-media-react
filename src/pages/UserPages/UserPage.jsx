@@ -26,7 +26,7 @@ export const UserPage = () =>{
             <div className="rightprofileBar">
                 <div className="rightprofileTop">
                 <div className="profileCover">
-                    <img src="assets/cover.jpg" alt="" className="coverPic" />
+                    <img src="https://images.unsplash.com/photo-1549074862-6173e20d02a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dW5kZXJ3YXRlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" className="coverPic" />
                     <img src={userProfileRequired.profilePicture} alt="" className="profilepic" />
                 </div>
             
