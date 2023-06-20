@@ -3,9 +3,12 @@ import '../profilePage/profile.css';
 import { useParams } from "react-router-dom"
 import { AuthContext } from '../../Authentication/AuthContext';
 import { PostDataContext } from '../../Data/posts';
-import Feed from '../../components/feed/Feed';
 import Rightbar from '../../components/rightbar/Rightbar';
 import Leftbar from '../../components/leftbar/Leftbar';
+import UserFeed from '../../components/userFeed/UserFeed';
+import Share from '../../components/share/Share';
+import Post from '../../components/post/Post';
+
 
 
 export const UserPage = () =>{
@@ -13,7 +16,9 @@ export const UserPage = () =>{
     const {_id} = useParams();
     console.log(state.users)
     const userProfileRequired = state.users.find((item) => item._id === _id)
-    console.log(userProfileRequired)
+    console.log(userProfileRequired);
+    const userPosts = state.posts.filter((item) => item.username === userProfileRequired.username);
+    console.log("user posts", userPosts)
     return(
         <div >
             
@@ -40,7 +45,16 @@ export const UserPage = () =>{
                 <div className="rightProfileBottom">
                 <>
                 <div className="profile-feed">
-                <Feed/>
+                
+                <div className="feedContainer">
+                   
+           
+                    {userPosts.map(p=>
+                    <Post key = {p._id} post = {p}/>  )}
+              
+            
+            
+                </div>
 
                 </div>
                 

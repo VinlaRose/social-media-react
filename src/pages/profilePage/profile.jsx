@@ -3,10 +3,17 @@ import Feed from '../../components/feed/Feed';
 import Leftbar from '../../components/leftbar/Leftbar';
 import Rightbar from '../../components/rightbar/Rightbar';
 
+
 import './profile.css';
 import { AuthContext } from '../../Authentication/AuthContext';
+import Share from '../../components/share/Share';
+import Post from '../../components/post/Post';
+import { PostDataContext } from '../../Data/posts';
 export default function Profile(){
-    const {user, currentUser} = useContext(AuthContext)
+    const {user, currentUser} = useContext(AuthContext);
+    const {state} = useContext(PostDataContext)
+    console.log("current uer posts:", currentUser );
+    const userPosts = state.posts.filter((item) => item.username === currentUser.username);
     return(
         <div>
             
@@ -33,7 +40,16 @@ export default function Profile(){
                 <div className="rightProfileBottom">
                 <>
                 <div className="profile-feed">
-                <Feed/>
+                <div className="feedContainer">
+                    <Share/>
+            
+           
+                    {userPosts?.map(p=>
+                    <Post key = {p._id} post = {p}/>  )}
+              
+            
+            
+                </div>
 
                 </div>
                 

@@ -2,6 +2,7 @@
 import { MoreVert} from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import React, { useContext, useState } from 'react';
 import './dotMenu.css'
 import { PostDataContext } from '../../Data/posts';
@@ -10,7 +11,7 @@ import { AuthContext } from '../../Authentication/AuthContext';
 const OptionsComponent = ({id}) => {
   const [showOptions, setShowOptions] = useState(false);
   const {getData, state, dispatch} = useContext(PostDataContext);
-  const {user} = useContext(AuthContext);
+  const {user, currentUser} = useContext(AuthContext);
   const {encodedToken} = user;
 
 
@@ -121,6 +122,7 @@ const OptionsComponent = ({id}) => {
           <ul>
             <li onClick={() => handleDelete(id)} className='post-Options'><DeleteIcon/>Delete</li>
             <li onClick={() => handleToggleModal(id)} className='post-Options'><EditIcon/> Edit</li>
+            <li  className='post-Options'><BookmarksIcon/> Bookmark</li>
           </ul>
         </div>
       )}
