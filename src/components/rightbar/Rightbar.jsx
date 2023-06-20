@@ -14,11 +14,11 @@ export default function Rightbar(){
             return(
                 <>
                 <div className="bdayMsg">
-                        <img src="assets/gift.jpg" alt="" className="bdayIcon" />
+                        <img src="https://cdn.pixabay.com/photo/2020/10/27/15/14/gift-5691042_640.png" alt="" className="bdayIcon" />
                         <span className="bdayText"><b>Veronica</b> and <b>3 others </b>have their bday today.</span>
                     </div>
                     <div className="adBox">
-                        <img src="assets/add1.jpg" alt="" className="adImg" />
+                        <img src="https://post.greatist.com/wp-content/uploads/sites/2/2021/07/383455-8_25-Market-Discover-Team-Greatists-Favorite-Sparkling-Water-Brands-1200x628-Facebook-1200x628.jpg" alt="" className="adImg" />
                     </div>
                     <h4 className='onlineFrndsHeading'>People Around You</h4>
 
