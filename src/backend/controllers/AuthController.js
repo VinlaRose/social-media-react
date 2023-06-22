@@ -15,10 +15,13 @@ const sign = require("jwt-encode");
  * */
 
 export const signupHandler = function (schema, request) {
-  const { username, password, ...rest } = JSON.parse(request.requestBody);
+  const { username, password,  firstName,
+    lastName } = JSON.parse(request.requestBody);
   try {
     // check if username already exists
+   
     const foundUser = schema.users.findBy({ username: username });
+    console.log(foundUser)
     if (foundUser) {
       return new Response(
         422,
@@ -34,19 +37,26 @@ export const signupHandler = function (schema, request) {
       _id,
       createdAt: formatDate(),
       updatedAt: formatDate(),
+      firstName,
+      lastName,
       username,
       password,
-      ...rest,
       followers: [],
       following: [],
       bookmarks: [],
+<<<<<<< Updated upstream
       profilePicture: "assets/Default-profile.png"
+=======
+      profilePicture: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YW5pbWF0ZWQlMjBwcm9maWxlJTIwcGljdHVyZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+>>>>>>> Stashed changes
     };
     const createdUser = schema.users.create(newUser);
+    
     const encodedToken = sign(
       { _id, username },
       process.env.REACT_APP_JWT_SECRET
     );
+    this.db.users.insert(createdUser);
     return new Response(201, {}, { createdUser, encodedToken });
   } catch (error) {
     return new Response(

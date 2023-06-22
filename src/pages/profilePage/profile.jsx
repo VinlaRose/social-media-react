@@ -6,6 +6,7 @@ import Rightbar from '../../components/rightbar/Rightbar';
 
 import './profile.css';
 import { AuthContext } from '../../Authentication/AuthContext';
+<<<<<<< Updated upstream
 import Share from '../../components/share/Share';
 import Post from '../../components/post/Post';
 import { PostDataContext } from '../../Data/posts';
@@ -14,6 +15,11 @@ export default function Profile(){
     const {state} = useContext(PostDataContext)
     console.log("current uer posts:", currentUser );
     const userPosts = state.posts.filter((item) => item.username === currentUser.username);
+=======
+export default function Profile(){
+    const {user} = useContext(AuthContext);
+    
+>>>>>>> Stashed changes
     return(
         <div>
             
@@ -30,9 +36,17 @@ export default function Profile(){
             
                 </div>
                 <div className="profileInfo">
+<<<<<<< Updated upstream
                     {
                         user.foundUser ? <h2 className="name">{user.foundUser.firstName}</h2> : <h2 className="name">{user.createdUser.firstName}</h2>
                     }
+=======
+                {
+                     user.foundUser ? <h2 className="name">
+                     {user.foundUser.firstName} {user.foundUser.lastName}</h2> : <h2 className="name">
+                        {user.createdUser.firstName} {user.createdUser.lastName}</h2>
+                 }
+>>>>>>> Stashed changes
                     
                     <span className="profielBio">Hi Friends!!</span>
                 </div>
