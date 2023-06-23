@@ -10,7 +10,7 @@ import { FilterButtons } from '../filterButtons/filterbtns';
 
 export default function Feed(){
     const {state} = useContext(PostDataContext);
-    console.log(state)
+    
     return(
         <div className="feedContainer">
             <Share/>

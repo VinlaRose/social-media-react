@@ -69,12 +69,7 @@ const OptionsComponent = ({id}) => {
   const handleToggleModal = (id) => {
     setShowModal(!showModal);
     setText(state.currentPost.content)
-
- 
   };
-
-  
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -138,17 +133,7 @@ const OptionsComponent = ({id}) => {
               <button type="submit">Submit</button>
             </form>
             
-            {/* <p>{isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <textarea className="resizable-input" type="text" value={text} onChange={handleChange} />
-          <button type="submit">Submit</button>
-        </form>
-      ) : (
-        <div>
-          <p>{text}</p>
-          <button onClick={handleEdit}>Edit</button>
-        </div>
-      )}</p> */}
+          
             <button onClick={() => handleEditing(id)}>Post</button>
           </div>
         </div>

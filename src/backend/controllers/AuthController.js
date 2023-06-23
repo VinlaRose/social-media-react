@@ -40,6 +40,8 @@ export const signupHandler = function (schema, request) {
       followers: [],
       following: [],
       bookmarks: [],
+      bio: "",
+      personalLink: "",
       profilePicture: "assets/Default-profile.png"
     };
     const createdUser = schema.users.create(newUser);

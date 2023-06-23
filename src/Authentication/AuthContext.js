@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PostDataContext } from "../Data/posts";
 
@@ -7,7 +7,7 @@ import { PostDataContext } from "../Data/posts";
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const {getData, getUsersData} = useContext(PostDataContext);
+  const {getUsersData, dispatch} = useContext(PostDataContext);
    
     const navigate = useNavigate();
     const location = useLocation();
@@ -148,13 +148,21 @@ export function AuthProvider({ children }) {
    
 
   }
-let currentUser;
+
+  useEffect(() => {
+    
+    let currentUser;
   if(user.encodedToken){
     currentUser = user.foundUser ? user.foundUser : user.createdUser;
   
     console.log("current user: " , currentUser);
-    
+   
   }
+  dispatch({ type: 'CURRENT_USER', payload: currentUser });
+  },[])
+
+  
+
 
   
 
@@ -164,7 +172,7 @@ let currentUser;
 
   return (
     <AuthContext.Provider  value={{user, handleLogin ,logoutHandler, handleInputChange, handleSubmit, creds,handleGuestLogin,
-    handleSignUp, handleSignUpSubmit, handleSinUpInputChange, signUpcreds, currentUser}}>
+    handleSignUp, handleSignUpSubmit, handleSinUpInputChange, signUpcreds}}>
       {children}
     </AuthContext.Provider>
   );

@@ -4,10 +4,13 @@ import {Person, Search, Chat, Notifications} from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
 import Dropdown from '../dropdown/dropdown';
 import { AuthContext } from '../../Authentication/AuthContext';
+import { PostDataContext } from '../../Data/posts';
 
 
 export default function Topbar(){
-  const {user, logoutHandler,currentUser} = useContext(AuthContext);
+  const {user, logoutHandler} = useContext(AuthContext);
+  const {state} = useContext(PostDataContext);
+  const {currentUser} = state;
   const {encodedToken} = user;
   const navigate = useNavigate();
     return(

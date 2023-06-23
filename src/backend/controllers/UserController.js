@@ -43,6 +43,7 @@ export const getUserHandler = function (schema, request) {
 
 export const editUserHandler = function (schema, request) {
   let user = requiresAuth.call(this, request);
+  console.log(user)
   try {
     if (!user) {
       return new Response(
@@ -56,6 +57,7 @@ export const editUserHandler = function (schema, request) {
       );
     }
     const { userData } = JSON.parse(request.requestBody);
+    console.log(userData)
     console.log(userData && userData.username && userData.username !== user.username);
     if (userData && userData.username && userData.username !== user.username) {
       return new Response(
@@ -67,9 +69,10 @@ export const editUserHandler = function (schema, request) {
           ],
         }
       );
-    }
+      }
 
     user = { ...user, ...userData, updatedAt: formatDate() };
+    console.log(user)
     this.db.users.update({ _id: user._id }, user);
     return new Response(201, {}, { user });
   } catch (error) {
