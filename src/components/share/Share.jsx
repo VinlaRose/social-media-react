@@ -44,15 +44,9 @@ export default function Share(){
     return(
         <div className="shareContainer">
             <div className="shareTopbar">
-<<<<<<< Updated upstream
                 {
                     user.foundUser ? <img src={user.foundUser.profilePicture} alt="" className="shareprofileImage" /> : <img src={user.createdUser.profilePicture} alt="" className="shareprofileImage" />
                 }
-=======
-            {
-                     user.foundUser ? <img src={foundUser.profilePicture} alt="" className="shareprofileImage" /> : <img src={user.createdUser.profilePicture} alt="" className="shareprofileImage" />
-                 }
->>>>>>> Stashed changes
                 
                 <input placeholder="What's in your mind?" type="text" className="writePost" onChange={ sharePostInputHandler}/>
 
