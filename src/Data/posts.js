@@ -1,5 +1,6 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import {reducer, initialState} from "../Reducer";
+import { AuthContext } from "../Authentication/AuthContext";
 
 
 
@@ -10,6 +11,8 @@ export const PostDataContext = createContext();
 
 export const PostDataProvider = ({children}) => {
 const [state, dispatch] = useReducer(reducer, initialState);
+
+
 
 const getData = async () => {
     try {
@@ -44,6 +47,8 @@ const getData = async () => {
             console.log(e)
             }
     };
+
+
     
     useEffect(() => {
         //POSTS
@@ -55,6 +60,7 @@ const getData = async () => {
 
         
         getUsersData();
+
         },[]);
     
 

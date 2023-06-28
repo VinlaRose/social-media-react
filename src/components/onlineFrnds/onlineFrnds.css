@@ -41,7 +41,41 @@
     object-fit: cover;
     cursor: pointer;
 }
+/*   */
 
 .friendsName{
-    margin-left: 15px;
+    flex: 1.25
 }
+.followBtn{
+   flex:1;
+   margin-top: 0;
+   
+   height: 30px;
+   text-align: center;
+   color: white;
+   text-transform: uppercase;
+   font-weight: 400;
+   border: white;
+   cursor: pointer;
+   display: inline-block;
+  
+}
+
+.button-5 {
+    width: 200px;
+    border-radius: 5px;
+    background-color: #fe3c72;
+    background-image: #fe3c72;
+    background-image: -moz-linear-gradient(top, #FF7854 0%, #fe3c72 100%); 
+    background-image: -webkit-linear-gradient(top, #FF7854 0%,#fe3c72 100%); 
+    background-image: linear-gradient(to bottom, #FF7854 0%,#fe3c72 100%); 
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+  }
+  .button-5:hover {
+    background-position: -200%;
+    transition: background 300ms ease-in-out;
+  }

@@ -6,6 +6,7 @@ export const initialState = {
     currentPost: [],
     filterType: '',
     currentUser: [],
+    bookmarks: [],
 }
 
 const filteringPosts = (data,filterType) => {
@@ -30,6 +31,7 @@ export const reducer = (state, action) =>{
                 ...state,
                 posts: action.payload.posts,
                 filteredPosts: action.payload.posts,
+                bookmarks: action.payload.bookmarks
             }
         case 'FETCH_USERS':
             return{

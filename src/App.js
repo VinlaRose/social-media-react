@@ -10,6 +10,7 @@ import Signin from './pages/signup/Signup';
 import { RequiresAuth } from './Authentication/RequireAuth';
 import { AuthContext } from './Authentication/AuthContext';
 import { UserPage } from './pages/UserPages/UserPage';
+import Bookmarks from './pages/BookmarkPage/Bookmark';
 
 
 
@@ -31,6 +32,15 @@ function App() {
           element={
             <RequiresAuth>
               <Home />
+            </RequiresAuth>
+          }
+        />
+
+    <Route
+          path="/bookmarks"
+          element={
+            <RequiresAuth>
+              <Bookmarks/>
             </RequiresAuth>
           }
         />

@@ -10,6 +10,8 @@ import { AuthContext } from '../../Authentication/AuthContext';
 import Share from '../../components/share/Share';
 import Post from '../../components/post/Post';
 import { PostDataContext } from '../../Data/posts';
+
+
 export default function Profile(){
     const {user} = useContext(AuthContext);
     const {encodedToken} = user;
@@ -17,6 +19,7 @@ export default function Profile(){
     const {currentUser} = state
     console.log(state)
     const userPosts = state.posts.filter((item) => item.username === currentUser.username);
+    console.log(userPosts)
 
     const [showModal, setShowModal] = useState(false);
     const [bioText, setBioText] = useState('');

@@ -59,7 +59,9 @@ export function AuthProvider({ children }) {
           JSON.stringify({foundUser: foundUser, encodedToken: encodedToken})
         );
         setUser(JSON.parse(localStorage.getItem(key)));
-        navigate(location?.state?.from?.pathname)
+        navigate(location?.state?.from?.pathname);
+        dispatch({ type: 'CURRENT_USER', payload: foundUser });
+        
       };
 
      
@@ -131,7 +133,8 @@ export function AuthProvider({ children }) {
           );
           setUser(JSON.parse(localStorage.getItem(key)));
           getUsersData();
-          navigate(location?.state?.from?.pathname)
+          navigate(location?.state?.from?.pathname);
+          dispatch({ type: 'CURRENT_USER', payload: createdUser });
         };
   
        
@@ -149,17 +152,18 @@ export function AuthProvider({ children }) {
 
   }
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   console.log("current :", user)
     
-    let currentUser;
-  if(user.encodedToken){
-    currentUser = user.foundUser ? user.foundUser : user.createdUser;
+  //   let currentUser;
+  // if(user.encodedToken){
+  //   currentUser = user.foundUser ? user.foundUser : user.createdUser;
   
-    console.log("current user: " , currentUser);
+  //   console.log("current user: " , currentUser);
    
-  }
-  dispatch({ type: 'CURRENT_USER', payload: currentUser });
-  },[])
+  // }
+  // dispatch({ type: 'CURRENT_USER', payload: currentUser });
+  // },[])
 
   
 

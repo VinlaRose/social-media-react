@@ -5,6 +5,8 @@ import { getTimeAgo } from '../../functions/dateconverter';
 import OptionsComponent from '../dotMenu/dotMenu';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import { AuthContext } from '../../Authentication/AuthContext';
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import InsertCommentIcon from '@mui/icons-material/InsertComment';
 
 export default function Post({post}){
     const {state, getData} = useContext(PostDataContext);
@@ -33,6 +35,39 @@ export default function Post({post}){
 
 const userFirstName = (name) => {
     return state.users.find((item) => item.username === name)
+}
+
+const addToBookMarks = (id) => {
+    console.log(id);
+
+    const bookmarkPost = async () => {
+        try {
+          const response = await fetch(`/api/users/bookmark/${id}`, {
+            method: 'POST',
+            headers: { authorization: encodedToken }
+          });
+          console.log(response);
+        } catch (e) {
+          console.error(e);
+        }
+      };
+
+      bookmarkPost();
+    
+      const getBookmarks = async () => {
+        try{
+            const bookmarkResponse = await fetch("/api/users/bookmark/" , {
+                method: 'GET',
+                headers: { authorization : encodedToken}
+            });
+            console.log(await bookmarkResponse.json());
+        }catch(e){
+            console.error(e)
+        }
+      };
+
+      getBookmarks();
+
 }
 
 
@@ -74,7 +109,10 @@ const userFirstName = (name) => {
                        
                         <span className="likeCount">{post.likes.likeCount}</span>
                     </div>
-                    <div className="postBottomRight">9 comments
+                    <div className="postBottomCentre" 
+                    onClick={() => addToBookMarks(post._id)}><BookmarkAddIcon/>
+                    </div>
+                    <div className="postBottomRight"><InsertCommentIcon/>
                     </div>
                 </div>
             </div>

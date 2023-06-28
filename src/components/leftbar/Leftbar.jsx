@@ -47,7 +47,7 @@ export default function Leftbar(){
                         <Groups className="leftbaritemicons"/>
                         <span className="leftbaritemnames">Groups</span>
                     </li>
-                    <li className="leftbaritem">
+                    <li className="leftbaritem" onClick={() => navigate("/bookmarks")}>
                         <Bookmark className="leftbaritemicons"/>
                         <span className="leftbaritemnames">Bookmarks</span>
                     </li>
