@@ -167,7 +167,7 @@ export function AuthProvider({ children }) {
 
   
 
-
+const {encodedToken} = user
   
 
   
@@ -175,7 +175,7 @@ export function AuthProvider({ children }) {
   
 
   return (
-    <AuthContext.Provider  value={{user, handleLogin ,logoutHandler, handleInputChange, handleSubmit, creds,handleGuestLogin,
+    <AuthContext.Provider  value={{user, encodedToken,handleLogin ,logoutHandler, handleInputChange, handleSubmit, creds,handleGuestLogin,
     handleSignUp, handleSignUpSubmit, handleSinUpInputChange, signUpcreds}}>
       {children}
     </AuthContext.Provider>

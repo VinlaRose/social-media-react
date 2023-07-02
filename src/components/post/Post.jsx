@@ -33,11 +33,11 @@ export default function Post({post}){
         
     }
 
-const userFirstName = (name) => {
+    const userFirstName = (name) => {
     return state.users.find((item) => item.username === name)
-}
+    }
 
-const addToBookMarks = (id) => {
+    const addToBookMarks = (id) => {
     console.log(id);
 
     const bookmarkPost = async () => {
@@ -68,7 +68,7 @@ const addToBookMarks = (id) => {
 
       getBookmarks();
 
-}
+    }
 
 
 

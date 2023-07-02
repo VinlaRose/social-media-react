@@ -13,22 +13,51 @@ import { PostDataContext } from '../../Data/posts';
 
 
 export default function Profile(){
+  
     const {user} = useContext(AuthContext);
+    const current = user.foundUser ? user.foundUser : user.createdUser;
+    
+    
     const {encodedToken} = user;
     const {state, getUsersData, dispatch} = useContext(PostDataContext);
-    const {currentUser} = state
+    const {currentUser} =state;
+    
     console.log(state)
-    const userPosts = state.posts.filter((item) => item.username === currentUser.username);
-    console.log(userPosts)
-
+    const userPosts = state.posts.filter((item) => item.username === current.username);
+    console.log(userPosts);
+    
     const [showModal, setShowModal] = useState(false);
     const [bioText, setBioText] = useState('');
     const [link, setLink] = useState('');
+    const [profile, setProfile] = useState("assets/Default-profile.png");
+
+    const [selectedAvatar, setSelectedAvatar] = useState(null);
+
+    const avatarOptions = [
+      "https://images.unsplash.com/photo-1634896941598-b6b500a502a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1635003913011-95971abba560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      
+      // Add more avatar options here
+    ];
+  
+    const handleAvatarChange = (avatar) => {
+      setSelectedAvatar(avatar);
+    };
+  
+    const handleSave = () => {
+      // Perform save operation with the selectedAvatar
+      console.log('Saving avatar:', selectedAvatar);
+      // You can make an API call or update the profile image in your desired way here
+    };
+
+
+    
 
     const handleToggleModal = () => {
         setShowModal(!showModal);
         setBioText(currentUser.bio);
-        setLink(currentUser.personalLink)
+        setLink(currentUser.personalLink);
+        setProfile(currentUser.profilePicture)
     };
 
     const handleSubmit = (event) => {
@@ -36,6 +65,7 @@ export default function Profile(){
      
         console.log("bio",bioText);
         console.log("Link", link);
+        console.log('Saving avatar:', selectedAvatar);
         
     
        
@@ -55,13 +85,14 @@ export default function Profile(){
             try {
               const response = await fetch(`/api/users/edit`, {
                 method: 'POST',
-                body: JSON.stringify({ userData: {bio: bioText, personalLink: link} }), 
+                body: JSON.stringify({ userData: {bio: bioText, personalLink: link, profilePicture: selectedAvatar} }), 
                 headers: { authorization: encodedToken }
               });
               
               const requiredResponse = await response.json();
               console.log(requiredResponse);
               dispatch({ type: 'CURRENT_USER', payload: requiredResponse.user });
+              console.log(state)
               
             } catch (e) {
               console.error(e);
@@ -75,10 +106,12 @@ export default function Profile(){
        
     
         setShowModal(!showModal);
+        setSelectedAvatar(null)
         
       };
 
-    
+      
+
     return(
         <div>
             
@@ -107,6 +140,25 @@ export default function Profile(){
                     <div className="modal-overlay">
                      <div className="modal-content">
                     <h2>Edit Profile</h2>
+                    <div>
+      <img
+        src={selectedAvatar || profile}
+        alt="Profile Avatar"
+        style={{ width: '200px', height: '200px' }}
+      />
+      <button onClick={handleSave}>Save</button>
+      <div>
+        {avatarOptions.map((avatar, index) => (
+          <img
+            key={index}
+            src={avatar}
+            alt={`Avatar ${index}`}
+            style={{ width: '50px', height: '50px', margin: '5px' }}
+            onClick={() => handleAvatarChange(avatar)}
+          />
+        ))}
+      </div>
+    </div>
                     <form onSubmit={handleSubmit}>
                      <textarea className="resizable-input" type="text" value={bioText} onChange={handleBioChange} />
                      <textarea className="resizable-input" type="text" value={link} onChange={handleLinkChange} />
@@ -129,7 +181,7 @@ export default function Profile(){
                     {userPosts?.map(p=>
                     <Post key = {p._id} post = {p}/>  )}
               
-            
+          
             
                 </div>
 

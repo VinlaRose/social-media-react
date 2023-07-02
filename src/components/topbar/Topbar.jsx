@@ -9,8 +9,9 @@ import { PostDataContext } from '../../Data/posts';
 
 export default function Topbar(){
   const {user, logoutHandler} = useContext(AuthContext);
+  const currentUser = user.foundUser ? user.foundUser : user.createdUser;
   const {state} = useContext(PostDataContext);
-  const {currentUser} = state;
+  
   const {encodedToken} = user;
   const navigate = useNavigate();
     return(
@@ -74,7 +75,7 @@ export default function Topbar(){
 
             {
               
-              encodedToken && <>  <img src={currentUser.profilePicture} alt="" className="topbarImg" onClick={()=>navigate("/profile")} /> <div className="topBarIconItem" onClick={logoutHandler} >Logout</div></>
+              encodedToken && <>  <img src={state.currentUser.profilePicture} alt="" className="topbarImg" onClick={()=>navigate("/profile")} /> <div className="topBarIconItem" onClick={logoutHandler} >Logout</div></>
             }
 
             

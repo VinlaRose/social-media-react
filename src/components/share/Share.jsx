@@ -9,12 +9,11 @@ export default function Share(){
     const [content, setContent] = useState('');
     const {user} = useContext(AuthContext);
     const {encodedToken} = user;
-    const {getData, getUsersData} = useContext(PostDataContext);
+    const {state,getData, getUsersData} = useContext(PostDataContext);
    
     const sharePostInputHandler = (e) => {
         setContent(e.target.value);
     }
-
 
     const shareButton = async () => {
         console.log(content);
@@ -45,7 +44,7 @@ export default function Share(){
         <div className="shareContainer">
             <div className="shareTopbar">
                 {
-                    user.foundUser ? <img src={user.foundUser.profilePicture} alt="" className="shareprofileImage" /> : <img src={user.createdUser.profilePicture} alt="" className="shareprofileImage" />
+                    user.foundUser ? <img src={state.currentUser.profilePicture} alt="" className="shareprofileImage" /> : <img src={state.currentUser.profilePicture} alt="" className="shareprofileImage" />
                 }
                 
                 <input placeholder="What's in your mind?" type="text" className="writePost" onChange={ sharePostInputHandler}/>

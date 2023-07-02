@@ -2,15 +2,26 @@ import React, { useContext } from 'react';
 import "./rightbar.css";
 import OnlineFrnds from '../onlineFrnds/onlineFrnds';
 import { PostDataContext } from '../../Data/posts';
+import { AuthContext } from '../../Authentication/AuthContext';
+
 
 
 
 export default function Rightbar(){
+
     
 
     
         const HomeRightBar = () => {
-            const {state} = useContext(PostDataContext)
+            const {state} = useContext(PostDataContext);
+            const {user} = useContext(AuthContext)
+            
+            const currentUser = user.foundUser ? user.foundUser : user.createdUser;
+            
+            
+            
+            const people = state.users.filter((item) => item.username !== currentUser.username);
+          
             return(
                 <>
                 <div className="bdayMsg">
@@ -23,7 +34,7 @@ export default function Rightbar(){
                     <h4 className='onlineFrndsHeading'>People Around You</h4>
 
                     <ul className="friendsList">
-                    {state.users.map(u=>
+                    {people.map(u=>
               <OnlineFrnds key = {u.id} user = {u}/>  )}
                     </ul>
                         
