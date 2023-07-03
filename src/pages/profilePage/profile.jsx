@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react'
-import Feed from '../../components/feed/Feed';
+import React, { useContext, useState } from 'react';
 import Leftbar from '../../components/leftbar/Leftbar';
 import Rightbar from '../../components/rightbar/Rightbar';
 

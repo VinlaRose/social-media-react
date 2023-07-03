@@ -9,7 +9,7 @@ import { PostDataContext } from '../../Data/posts';
 
 export default function Topbar(){
   const {user, logoutHandler} = useContext(AuthContext);
-  const currentUser = user.foundUser ? user.foundUser : user.createdUser;
+  
   const {state} = useContext(PostDataContext);
   
   const {encodedToken} = user;

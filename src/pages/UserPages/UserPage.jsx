@@ -1,19 +1,17 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import '../profilePage/profile.css';
 import { useParams } from "react-router-dom"
 import { AuthContext } from '../../Authentication/AuthContext';
 import { PostDataContext } from '../../Data/posts';
 import Rightbar from '../../components/rightbar/Rightbar';
 import Leftbar from '../../components/leftbar/Leftbar';
-import UserFeed from '../../components/userFeed/UserFeed';
-import Share from '../../components/share/Share';
 import Post from '../../components/post/Post';
 
 
 
 export const UserPage = () =>{
-    const {state, dispatch, getData, getUsersData, } = useContext(PostDataContext);
-    const {user, encodedToken} = useContext(AuthContext)
+    const {state, dispatch, getUsersData, } = useContext(PostDataContext);
+    const { encodedToken} = useContext(AuthContext)
     const {_id} = useParams();
     console.log(state.users)
     const userProfileRequired = state.users.find((item) => item._id === _id)
@@ -73,10 +71,7 @@ export const UserPage = () =>{
 
     
 
-    useEffect(() => {
-        
-        console.log(userProfileRequired)
-    },[]);
+  
 
     function elementExists(arr, element) {
         return arr.includes(element);
