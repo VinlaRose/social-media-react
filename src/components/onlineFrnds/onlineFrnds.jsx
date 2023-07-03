@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import "./onlineFrnds.css";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Authentication/AuthContext';
@@ -68,10 +68,7 @@ export default function OnlineFrnds({user}){
 
     
 
-    useEffect(() => {
-        console.log(state.userFollowings.map((item) => item.username))
-    },[]);
-
+    
     function elementExists(arr, element) {
         return arr.includes(element);
       }

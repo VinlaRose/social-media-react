@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import '../login/login.css';
 import { AuthContext } from '../../Authentication/AuthContext';
-import { useNavigate } from 'react-router-dom';
+
 
 export default function Signin(){
     const {handleSignUp, handleSignUpSubmit, handleSinUpInputChange, signUpcreds}  = useContext(AuthContext);
