@@ -8,7 +8,7 @@ import { PostDataContext } from '../../Data/posts';
 export default function OnlineFrnds({user}){
     const navigate = useNavigate();
     const {encodedToken} = useContext(AuthContext);
-    const {getData, getUsersData, state, dispatch} = useContext(PostDataContext)
+    const { getUsersData, state, dispatch} = useContext(PostDataContext)
     
     const {_id} =user
 

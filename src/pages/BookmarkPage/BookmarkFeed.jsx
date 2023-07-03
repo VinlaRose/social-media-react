@@ -1,13 +1,12 @@
-import React, { useContext, useEffect } from 'react';
-import "../../components/feed/feed.css"
-import { PostDataContext } from '../../Data/posts';
+import React, { useContext } from 'react';
+import "../../components/feed/feed.css";
 import { AuthContext } from '../../Authentication/AuthContext';
 
 
 
 
 export default function BookmarkFeed(){
-    const {user} = useContext(AuthContext);
+    // const {user} = useContext(AuthContext);
 
     // useEffect(() => {
     //     const getBookmarks = async () => {

@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext,  useEffect, useReducer } from "react";
 import {reducer, initialState} from "../Reducer";
-import { AuthContext } from "../Authentication/AuthContext";
 
 
 

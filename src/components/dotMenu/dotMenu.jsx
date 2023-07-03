@@ -11,7 +11,7 @@ import { AuthContext } from '../../Authentication/AuthContext';
 const OptionsComponent = ({id}) => {
   const [showOptions, setShowOptions] = useState(false);
   const {getData, state, dispatch} = useContext(PostDataContext);
-  const {user, currentUser} = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   const {encodedToken} = user;
 
 

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Signin(){
     const {handleSignUp, handleSignUpSubmit, handleSinUpInputChange, signUpcreds}  = useContext(AuthContext);
-    const navigate = useNavigate();
+    
     return(
         <div className="login">
             <div className="loginWrapper">
