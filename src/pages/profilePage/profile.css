@@ -49,6 +49,9 @@ position: relative;
 .rightProfileBottom{
     display: flex;
 }
+.profileUsername{
+    color: grey;
+}
 
 .profile-feed{
 flex:7
@@ -57,6 +60,42 @@ flex:7
 .profile-rightbar{
 flex:3
 }
+
+.social-media-stats {
+    
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .profileInfos{
+    display: flex;
+    flex-direction: row;
+    
+  }
+  
+  .social-media-stats h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    
+  }
+  
+  .social-media-stats strong {
+    font-weight: bold;
+  }
+  
+  .social-media-stats span {
+    color: #888;
+  }
+  
 
 
 

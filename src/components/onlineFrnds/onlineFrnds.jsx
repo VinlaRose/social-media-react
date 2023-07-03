@@ -40,6 +40,32 @@ export default function OnlineFrnds({user}){
     
     }
 
+
+    const clickUnFollow = (id) => {
+        console.log(id);
+        const unFollowFriend = async () => {
+            try {
+              const response = await fetch(`/api/users/unfollow/${id}`, {
+                method: 'POST',
+                headers: { authorization: encodedToken }
+              });
+              console.log(response);
+              const requiredResponse = await response.json();
+              console.log(requiredResponse.user.following);
+              dispatch({type:'USER_FOLLOWINGS', payload: requiredResponse.user.following});
+              
+
+            } catch (e) {
+              console.error(e);
+            }
+          };
+        unFollowFriend();
+        getUsersData();
+        
+        
+    
+    }
+
     
 
     useEffect(() => {
@@ -64,11 +90,13 @@ export default function OnlineFrnds({user}){
                            
                         
                             <span onClick={goToUserProfile} className="friendsName">{user.firstName}</span>
-                            <button onClick={() => clickFollow(user._id)} className='followBtn button-5'>
-                                {
-                                    elementExists()
-                                }
-                            </button>
+                            
+                            {
+                                elementExists(state.userFollowings.map((item) => item.username), user.username) ? <button onClick={() => clickUnFollow(user._id)} className='followBtn button-5'>UNFOLLOW</button> : <button onClick={() => clickFollow(user._id)} className='followBtn button-5'>
+                                FOLLOW
+                                </button>
+                            }
+
                         </li>
                         
                     

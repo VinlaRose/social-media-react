@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './topbar.css';
 import {Person, Search, Chat, Notifications} from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
@@ -14,6 +14,29 @@ export default function Topbar(){
   
   const {encodedToken} = user;
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState('');
+
+ 
+
+  const handleSearch = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    console.log(searchQuery)
+
+    const filteredResults = state.users.filter((person) =>
+      person.username.toLowerCase().includes(query.toLowerCase())
+    );
+    setSearchResults(filteredResults);
+    console.log(searchResults)
+  };
+  const searchFriends = (id) =>{
+    navigate(`/peopleprofile/${id}`);
+    setSearchQuery('')
+    
+    
+
+  }
     return(
         <div className = "topbarcontainer">
           <div className="topbarleft">
@@ -29,8 +52,24 @@ export default function Topbar(){
           <div className="topbarcentre">
             <div className="searchbar">
               <Search className="searchbaricon"/>
-              <input placeholder="Search for friends, posts, videos etc" className="searchInput" />
+             
+              <input
+              className="searchInput"
+              type="text"
+              placeholder="Search for people..."
+              value={searchQuery}
+              onChange={handleSearch}
+            />
+   {searchQuery.length > 0 && (
+        <div className="search-results">
+          {searchResults.map((item) => (
+            <div key={item._id} className="result-item" onClick={() => searchFriends(item._id)}>
+              {item.firstName} {item.lastName}
 
+            </div>
+          ))}
+        </div>
+      ) }
 
             </div>
         

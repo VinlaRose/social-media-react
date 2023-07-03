@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import '../profilePage/profile.css';
 import { useParams } from "react-router-dom"
 import { AuthContext } from '../../Authentication/AuthContext';
@@ -12,13 +12,77 @@ import Post from '../../components/post/Post';
 
 
 export const UserPage = () =>{
-    const {state} = useContext(PostDataContext)
+    const {state, dispatch, getData, getUsersData, } = useContext(PostDataContext);
+    const {user, encodedToken} = useContext(AuthContext)
     const {_id} = useParams();
     console.log(state.users)
     const userProfileRequired = state.users.find((item) => item._id === _id)
     console.log(userProfileRequired);
     const userPosts = state.posts.filter((item) => item.username === userProfileRequired.username);
-    console.log("user posts", userPosts)
+    console.log("user posts", userPosts);
+    const clickFollow = (id) => {
+        console.log(id);
+        const followFriend = async () => {
+            try {
+              const response = await fetch(`/api/users/follow/${id}`, {
+                method: 'POST',
+                headers: { authorization: encodedToken }
+              });
+              console.log(response);
+              const requiredResponse = await response.json();
+              console.log(requiredResponse.user.following);
+              dispatch({type:'USER_FOLLOWINGS', payload: requiredResponse.user.following});
+              
+
+            } catch (e) {
+              console.error(e);
+            }
+          };
+        followFriend();
+        getUsersData();
+        
+        
+    
+    }
+
+
+    const clickUnFollow = (id) => {
+        console.log(id);
+        const unFollowFriend = async () => {
+            try {
+              const response = await fetch(`/api/users/unfollow/${id}`, {
+                method: 'POST',
+                headers: { authorization: encodedToken }
+              });
+              console.log(response);
+              const requiredResponse = await response.json();
+              console.log(requiredResponse.user.following);
+              dispatch({type:'USER_FOLLOWINGS', payload: requiredResponse.user.following});
+              
+
+            } catch (e) {
+              console.error(e);
+            }
+          };
+        unFollowFriend();
+        getUsersData();
+        
+        
+    
+    }
+
+    
+
+    useEffect(() => {
+        
+        console.log(userProfileRequired)
+    },[]);
+
+    function elementExists(arr, element) {
+        return arr.includes(element);
+      }
+      
+      
     return(
         <div >
             
@@ -40,6 +104,30 @@ export const UserPage = () =>{
                     <h2 className="name">{userProfileRequired.firstName}</h2>
                     
                     <span className="profielBio">Hi Friends!!</span>
+                    {
+                                elementExists(state.userFollowings.map((item) => item.username), userProfileRequired.username) ? <button onClick={() => clickUnFollow(userProfileRequired._id)} className='followBtn button-5'>UNFOLLOW</button> : <button onClick={() => clickFollow(userProfileRequired._id)} className='followBtn button-5'>
+                                FOLLOW
+                                </button>
+                    }
+                     {/* <div className="social-media-stats">
+      
+       <div className="profileInfos">
+
+      
+      <div className='stats'>
+        <strong>Followers</strong>
+        <span>{userProfileRequired.followers.length}</span>
+      </div>
+      <div className='stats'>
+        <strong>Followings</strong>
+        <span>{userProfileRequired.userFollowings.length}</span>
+      </div>
+      <div className='stats'>
+        <strong>Posts</strong>
+        <span>{userPosts.length}</span>
+      </div>
+      </div> 
+    </div> */}
                 </div>
 
                 <div className="rightProfileBottom">

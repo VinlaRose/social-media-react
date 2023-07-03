@@ -10,6 +10,8 @@ import { AuthContext } from '../../Authentication/AuthContext';
 import Share from '../../components/share/Share';
 import Post from '../../components/post/Post';
 import { PostDataContext } from '../../Data/posts';
+import { Link } from 'react-router-dom';
+
 
 
 export default function Profile(){
@@ -111,7 +113,7 @@ export default function Profile(){
       };
 
       
-
+console.log(state.userFollowings.length)
     return(
         <div>
             
@@ -129,12 +131,32 @@ export default function Profile(){
                 </div>
                 <div className="profileInfo">
                     {
-                        user.foundUser ? <h2 className="name">{user.foundUser.firstName}</h2> : <h2 className="name">{user.createdUser.firstName}</h2>
+                        user.foundUser ? <h2 className="name">{user.foundUser.firstName} {user.foundUser.lastName}</h2> : <h2 className="name">{user.createdUser.firstName} {user.createdUser.lastName}</h2>
                     }
+                     <span className="profileUsername">@{currentUser.username}</span>
                     
-                    <span className="profielBio">About you: {currentUser.bio}</span>
-                    <span className="profielBio">Link: {currentUser.personalLink}</span>
+                    <span className="profileBio">{currentUser.bio}</span>
+                    <span className="profileLink"><Link>{currentUser.personalLink}</Link></span>
                     <button onClick={handleToggleModal}>Edit Profile</button>
+                    <div className="social-media-stats">
+      
+      <div className="profileInfos">
+
+      
+      <div className='stats'>
+        <strong>Followers</strong>
+        <span>5</span>
+      </div>
+      <div className='stats'>
+        <strong>Followings</strong>
+        <span>{state.userFollowings.length}</span>
+      </div>
+      <div className='stats'>
+        <strong>Posts</strong>
+        <span>{userPosts.length}</span>
+      </div>
+      </div>
+    </div>
 
                     {showModal && (
                     <div className="modal-overlay">
