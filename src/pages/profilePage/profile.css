@@ -95,6 +95,11 @@ flex:3
   .social-media-stats span {
     color: #888;
   }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
   
 
 

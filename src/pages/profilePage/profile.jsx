@@ -210,7 +210,12 @@ console.log(state.userFollowings.length)
                      <textarea className="resizable-input" type="text" value={link} onChange={handleLinkChange} />
                     {/* <button type="submit">Submit</button> */}
                     </form>
+                    <div className="buttons">
                     <button onClick={() => handleEditing(currentUser._id)}>Done</button>
+                    <button onClick={() => setShowModal(!showModal)}>Close</button>
+                    
+
+                    </div>
                     </div>
                     </div>
                     )}
