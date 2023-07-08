@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './topbar.css';
 import {Person, Search, Chat, Notifications} from '@mui/icons-material';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import Dropdown from '../dropdown/dropdown';
 import { AuthContext } from '../../Authentication/AuthContext';
 import { PostDataContext } from '../../Data/posts';
@@ -77,13 +77,13 @@ export default function Topbar(){
           </div>
           <div className="topbarright">
             <div className="topbarlinks">
-              <Link to="/"  className="topbarlinks">Home</Link >
+             
               
             </div>
             <div className="topbaricons">
               <div className="topBarIconItem">
                 <Person/>
-                <span className="topbariconbadge">1</span>
+                <span className="topbariconbadge">2</span>
               </div>
               <div className="topBarIconItem">
                 <Chat/>
@@ -91,7 +91,7 @@ export default function Topbar(){
               </div>
               <div className="topBarIconItem">
                 <Notifications/>
-                <span className="topbariconbadge">1</span>
+                <span className="topbariconbadge">4</span>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ export default function Topbar(){
             {
               encodedToken && <div className="topBarIconItem"  >
                 {
-                  user.foundUser ? <p>{user.foundUser.firstName}</p> : <p>{user.createdUser.firstName}</p>
+                  user.foundUser ? <p onClick={()=>navigate("/profile")}>{user.foundUser.firstName}</p> : <p onClick={()=>navigate("/profile")}>{user.createdUser.firstName}</p>
                 }
               </div> 
             }

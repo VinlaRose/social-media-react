@@ -72,7 +72,7 @@ export default function Post({post}){
 
 
 
-
+console.log(state)
 
 
 
@@ -95,7 +95,11 @@ export default function Post({post}){
                     getTimeAgo(post.updatedAt)
                     }</span>
                     </div>
-                    <div className="dots"><OptionsComponent  id={post._id}/></div>
+                    {
+                      userFirstName(post.username).firstName === state.currentUser.firstName && <div className="dots"><OptionsComponent  id={post._id}/></div>
+                    }
+
+                    
                     
                 </div>
                 <div className="postMiddle">

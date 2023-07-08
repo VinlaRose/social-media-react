@@ -2,7 +2,7 @@
 import { MoreVert} from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import BookmarksIcon from '@mui/icons-material/Bookmarks';
+
 import React, { useContext, useState } from 'react';
 import './dotMenu.css'
 import { PostDataContext } from '../../Data/posts';
@@ -84,7 +84,7 @@ const OptionsComponent = ({id}) => {
 
 
   const handleEditing = (id) => {
-    // Perform edit action here
+    
     
     const editPost = async () => {
       console.log(id)
@@ -117,7 +117,7 @@ const OptionsComponent = ({id}) => {
           <ul>
             <li onClick={() => handleDelete(id)} className='post-Options'><DeleteIcon/>Delete</li>
             <li onClick={() => handleToggleModal(id)} className='post-Options'><EditIcon/> Edit</li>
-            <li  className='post-Options'><BookmarksIcon/> Bookmark</li>
+            {/* <li  className='post-Options'><BookmarksIcon/> Bookmark</li> */}
           </ul>
         </div>
       )}
@@ -130,7 +130,7 @@ const OptionsComponent = ({id}) => {
             <h2>Edit Post</h2>
             <form onSubmit={handleSubmit}>
               <textarea className="resizable-input" type="text" value={text} onChange={handleChange} />
-              <button type="submit">Submit</button>
+              {/* <button type="submit">Submit</button> */}
             </form>
             
           

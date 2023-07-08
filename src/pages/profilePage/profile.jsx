@@ -35,21 +35,23 @@ export default function Profile(){
     const [selectedAvatar, setSelectedAvatar] = useState(null);
 
     const avatarOptions = [
-      "https://images.unsplash.com/photo-1634896941598-b6b500a502a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1635003913011-95971abba560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://cdn.dribbble.com/users/3734064/screenshots/14348087/media/a99ab961c8f8c7d29b5f7136e0b19ca4.png?compress=1&resize=400x300&vertical=center",
+      "https://cdn3.vectorstock.com/i/1000x1000/14/77/sikh-man-avatar-vector-25981477.jpg",
+      "https://www.cliparts101.com/files/367/63BA654AECB7FD26A32D08915C923030/avatar_nick.png",
+      "https://img.freepik.com/premium-vector/portrait-caucasian-woman-avatar-female-person-vector-icon-adult-flat-style-headshot_605517-26.jpg?w=2000",
+      "https://st3.depositphotos.com/1007566/13175/v/600/depositphotos_131750410-stock-illustration-woman-female-avatar-character.jpg",
+      "https://static.vecteezy.com/system/resources/previews/021/687/858/non_2x/close-up-portrait-of-a-muslim-male-character-wearing-a-muslim-cap-kopiah-songkok-round-circle-avatar-icon-for-social-media-user-profile-website-app-line-cartoon-style-illustration-free-vector.jpg",
+      "https://thumbs.dreamstime.com/b/woman-avatar-vector-illustration-cartoon-beautiful-girl-flat-design-style-avatar-business-woman-female-avatar-face-icon-bl-90994514.jpg",
+      "https://st3.depositphotos.com/6697918/15699/v/450/depositphotos_156995430-stock-illustration-arab-muslim-woman-in-red.jpg"
       
-      // Add more avatar options here
+     
     ];
   
     const handleAvatarChange = (avatar) => {
       setSelectedAvatar(avatar);
     };
   
-    const handleSave = () => {
-      // Perform save operation with the selectedAvatar
-      console.log('Saving avatar:', selectedAvatar);
-      // You can make an API call or update the profile image in your desired way here
-    };
+  
 
 
     
@@ -111,6 +113,14 @@ export default function Profile(){
         
       };
 
+
+
+  const handleImageUpload = (event) => {
+    const uploadedImage = event.target.files[0];
+    setSelectedAvatar(URL.createObjectURL(uploadedImage))
+    
+  };
+
       
 console.log(state.userFollowings.length)
     return(
@@ -167,8 +177,9 @@ console.log(state.userFollowings.length)
         alt="Profile Avatar"
         style={{ width: '200px', height: '200px' }}
       />
-      <button onClick={handleSave}>Save</button>
+     
       <div>
+        <p className="heading">Select from the avatars below :</p>
         {avatarOptions.map((avatar, index) => (
           <img
             key={index}
@@ -179,11 +190,25 @@ console.log(state.userFollowings.length)
           />
         ))}
       </div>
+      <div className="uploadImage">
+        
+        
+            <div>
+            <p className="heading">Or Upload here :</p>
+      <input type="file" accept="image/*" onChange={handleImageUpload} />
+      {/* <button onClick={() => setImage(null)}>Remove Image</button> */}
+      
+    </div>
+        
+        
+      </div>
     </div>
                     <form onSubmit={handleSubmit}>
+                    <p className="heading">Edit your bio :</p>
                      <textarea className="resizable-input" type="text" value={bioText} onChange={handleBioChange} />
+                     <p className="heading">Edit your personal website :</p>
                      <textarea className="resizable-input" type="text" value={link} onChange={handleLinkChange} />
-                    <button type="submit">Submit</button>
+                    {/* <button type="submit">Submit</button> */}
                     </form>
                     <button onClick={() => handleEditing(currentUser._id)}>Done</button>
                     </div>

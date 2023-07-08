@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./leftbar.css";
 import { Home, Login,Timeline, RssFeed, Chat, Groups, Work, QuestionMark, Event, MenuBook, Bookmark} from '@mui/icons-material';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Authentication/AuthContext';
 
 
 
 export default function Leftbar(){
     const navigate = useNavigate();
+    const {logoutHandler} = useContext(AuthContext)
     return(
         
         <div className="leftBarContainer">
@@ -21,7 +23,7 @@ export default function Leftbar(){
                     </li>
 
 
-                    <li className="leftbaritem"  onClick={() => navigate("/login")} >
+                    <li className="leftbaritem" onClick={logoutHandler} >
                         <Login className="leftbaritemicons"/>
                         <span className="leftbaritemnames">Login</span>
                     </li>
