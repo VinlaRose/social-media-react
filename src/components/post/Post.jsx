@@ -5,12 +5,13 @@ import { getTimeAgo } from '../../functions/dateconverter';
 import OptionsComponent from '../dotMenu/dotMenu';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import { AuthContext } from '../../Authentication/AuthContext';
-import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import BookmarkAddedOutlinedIcon from '@mui/icons-material/BookmarkAddedOutlined';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import { useNavigate } from 'react-router-dom';
 
 export default function Post({post}){
-    const {state, getData} = useContext(PostDataContext);
+    const {state,dispatch, getData} = useContext(PostDataContext);
     const {user} = useContext(AuthContext);
     const {encodedToken} = user;
     const navigate = useNavigate()
@@ -62,7 +63,10 @@ export default function Post({post}){
                 method: 'GET',
                 headers: { authorization : encodedToken}
             });
-            console.log(await bookmarkResponse.json());
+            
+            const presentBookmarks = await bookmarkResponse.json();
+            dispatch({type: 'BOOKMARKS', payload: presentBookmarks.bookmarks});
+
         }catch(e){
             console.error(e)
         }
@@ -72,13 +76,48 @@ export default function Post({post}){
 
     }
 
+    const removeFromBookMarks = (id) => {
+      const bookmarkPost = async () => {
+        try {
+          const response = await fetch(`/api/users/remove-bookmark/${id}`, {
+            method: 'POST',
+            headers: { authorization: encodedToken }
+          });
+          console.log(response);
+        } catch (e) {
+          console.error(e);
+        }
+      };
+
+      bookmarkPost();
+    
+      const getBookmarks = async () => {
+        try{
+            const bookmarkResponse = await fetch("/api/users/bookmark/" , {
+                method: 'GET',
+                headers: { authorization : encodedToken}
+            });
+            
+            const presentBookmarks = await bookmarkResponse.json();
+            dispatch({type: 'BOOKMARKS', payload: presentBookmarks.bookmarks});
+
+        }catch(e){
+            console.error(e)
+        }
+      };
+
+      getBookmarks();
+    }
+
+
+
     const goToProfile = (id) => {
       navigate(`/peopleprofile/${id}`);
     }
 
 
 
-console.log(state)
+console.log(state.bookmarks)
 
 
 
@@ -119,8 +158,12 @@ console.log(state)
                        
                         <span className="likeCount">{post.likes.likeCount}</span>
                     </div>
-                    <div className="postBottomCentre" 
-                    onClick={() => addToBookMarks(post._id)}><BookmarkAddIcon/>
+                    
+                    <div className="postBottomCentre" >
+                    {
+                      state.bookmarks?.includes(post._id) ? <BookmarkAddedOutlinedIcon onClick={() => removeFromBookMarks(post._id)}/>  : <BookmarkBorderOutlinedIcon onClick={() => addToBookMarks(post._id)}/>
+                    }
+                      
                     </div>
                     <div className="postBottomRight"><InsertCommentIcon/>
                     </div>

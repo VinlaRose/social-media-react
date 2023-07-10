@@ -1,37 +1,39 @@
-// import React, { useContext } from 'react';
+
 import "../../components/feed/feed.css";
-// import { AuthContext } from '../../Authentication/AuthContext';
+import { useContext } from "react";
+import { PostDataContext } from "../../Data/posts";
+import Post from "../../components/post/Post";
+import "./bookmark.css"
+
 
 
 
 
 export default function BookmarkFeed(){
-    // const {user} = useContext(AuthContext);
+    
+    const {state} = useContext(PostDataContext);
+    
 
-    // useEffect(() => {
-    //     const getBookmarks = async () => {
-    //         try{
-    //             const bookmarkResponse = await fetch("/api/users/bookmark/" , {
-    //                 method: 'GET',
-    //                 headers: { authorization : user.encodedToken}
-    //             });
-    //             console.log(await bookmarkResponse.json());
-    //             const bookmarks = await bookmarkResponse.json()
-    //             console.log(bookmarks)
-    //         }catch(e){
-    //             console.error(e)
-    //         }
-    //       };
+    const  filterObjectsById = 
+         state.posts.filter(obj => state.bookmarks.includes(obj._id));
+      
 
-    // },[user.encodedToken])
+      
+
+   
     
     return(
         <div className="feedContainer">
+            <div className="bookmark-heading">
+            <h2>Your Bookmarks</h2>
+            </div>
+
+
             
-            Bookmark feed
+            
            
-            {/* {state.filteredPosts.map(p=>
-              <Post key = {p._id} post = {p}/>  )} */}
+            {filterObjectsById.map(p=>
+              <Post key = {p._id} post = {p}/>  )}
               
             
             

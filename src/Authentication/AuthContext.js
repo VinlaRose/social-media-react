@@ -133,7 +133,7 @@ export function AuthProvider({ children }) {
           );
           setUser(JSON.parse(localStorage.getItem(key)));
           getUsersData();
-          navigate(location?.state?.from?.pathname);
+          navigate("/");
           dispatch({ type: 'CURRENT_USER', payload: createdUser });
         };
   

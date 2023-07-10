@@ -61,7 +61,12 @@ export const reducer = (state, action) =>{
             return{
                 ...state,
                 userFollowings: action.payload,
-            }  
+            } 
+        case 'BOOKMARKS':
+            return{
+                    ...state,
+                    bookmarks: action.payload,
+                }  
         default:
             return state;
         
