@@ -8,6 +8,7 @@ export const initialState = {
     currentUser: [],
     bookmarks: [],
     userFollowings: [],
+    likedPosts: [],
 }
 
 const filteringPosts = (data,filterType) => {

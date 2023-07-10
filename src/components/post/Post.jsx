@@ -3,7 +3,7 @@ import "./post.css";
 import { PostDataContext } from '../../Data/posts';
 import { getTimeAgo } from '../../functions/dateconverter';
 import OptionsComponent from '../dotMenu/dotMenu';
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { AuthContext } from '../../Authentication/AuthContext';
 import BookmarkAddedOutlinedIcon from '@mui/icons-material/BookmarkAddedOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
@@ -154,7 +154,7 @@ console.log(state.bookmarks)
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <ThumbUpAltIcon onClick={() => likeHandler(post._id)}/>
+                        <FavoriteBorderOutlinedIcon onClick={() => likeHandler(post._id)}/>
                        
                         <span className="likeCount">{post.likes.likeCount}</span>
                     </div>
