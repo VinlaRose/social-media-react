@@ -76,7 +76,7 @@ export default function OnlineFrnds({user}){
         <div>
             
                         <li className="friendsonline" >
-                            <div className="suggetedUserImage">
+                            <div className="suggetedUserImage" onClick={goToUserProfile} >
                             <div className="imageContainerOnline">
                                 <img src={user.profilePicture} alt="" className="friendsImage" />
                                 <span className="onlinebadge"></span>

@@ -7,11 +7,13 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import { AuthContext } from '../../Authentication/AuthContext';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
+import { useNavigate } from 'react-router-dom';
 
 export default function Post({post}){
     const {state, getData} = useContext(PostDataContext);
     const {user} = useContext(AuthContext);
     const {encodedToken} = user;
+    const navigate = useNavigate()
     
     
     const likeHandler =(id)=>{
@@ -70,6 +72,10 @@ export default function Post({post}){
 
     }
 
+    const goToProfile = (id) => {
+      navigate(`/peopleprofile/${id}`);
+    }
+
 
 
 console.log(state)
@@ -85,7 +91,7 @@ console.log(state)
                     <div className="postTopLeft">
                     <img src={
                             userFirstName(post.username).profilePicture
-                        } alt="" className="postProfile" />
+                        } alt="" className="postProfile" onClick={() => goToProfile( userFirstName(post.username)._id)}/>
                     <span className="postProfileName">
                         {
                            userFirstName(post.username).firstName
