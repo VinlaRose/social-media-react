@@ -1,10 +1,10 @@
-/* Style for the heading container */
+
 .bookmark-heading {
     padding: 10px 0;
     background-color: #f2f2f2;
   }
   
-  /* Style for the heading text */
+
   .bookmark-heading h2 {
     font-size: 18px;
     color: #333;
@@ -12,7 +12,7 @@
     padding: 0;
   }
   
-  /* Style for the underline */
+ 
   .bookmark-heading:after {
     content: '';
     display: block;
